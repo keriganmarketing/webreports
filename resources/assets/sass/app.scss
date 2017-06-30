@@ -1,0 +1,144 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+body{
+  font-family:"Open Sans", sans-serif;
+}
+.wrapper{
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.header{
+  margin-top: 20px;
+  background: #0b3a5d;
+  color:#fff;
+}
+.big-number{
+  font-size: 2.5em;
+  text-align: center;
+  font-weight: 300;
+}
+.red{
+  color: #d5451e;
+}
+.green{
+  color: #7cb700;
+}
+.compare-header {
+  font-size: 2rem;
+  font-weight: lighter;
+  margin-bottom: 5px;
+  padding: 30px .25rem 0;
+}
+hr{
+  margin-top:0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #333;
+}
+.description{
+  text-align: center;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 300;
+}
+.devices-wrapper{
+  position: relative;
+}
+.device-header{
+  padding: 20px;
+}
+.device{
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.new-vs-returning{
+  height:300px;
+  display:flex;
+  align-items:center;
+}
+.light-grey-bg{
+  background: #ddd;
+}
+.single-line{
+  padding-top: 40px;
+  margin-bottom: -5px;
+}
+.desktop{
+  height: 40px;
+  padding-top: 20px;
+  font-size: 1.4em;
+}
+.phone{
+  margin-top:18px;
+}
+.phone-text{
+  height: 40px;
+  padding-top: 20px;
+  font-size: 1.4em;
+}
+.tablet{
+  margin-top:12px;
+}
+.tablet-text{
+  height: 40px;
+  padding-top: 20px;
+  font-size: 1.4em;
+}
+.visitors{
+  color:#1C558F;
+  margin-bottom:0;
+}
+.visitor-type{
+  padding-top: 0;
+}
+.height-60{
+  height: 80px;
+}
+.height-60>p{
+  padding-top:15px;
+}
+.white-right-border{
+  border-right: 3px solid #fff;
+}
+.page-percentage{
+  text-align:center;
+  font-size: 1em;
+}
+.traffic-header{
+  padding: 20px 0;
+  font-size: 1.3em;
+  font-weight: lighter;
+  margin-bottom: 5px;
+  text-align: right;
+}
+.no-gutter{
+  padding-left:0;
+  padding-right:0;
+}
+.traffic-description{
+  padding-top: 20px;
+}
+.traffic-number{
+  padding-top: 5px;
+  padding-right: 20px;
+}
+p.page-name, .page-percentage {
+  padding: 10px 0 5px;
+  font-size: 1.5em;
+}
+.page-name a{
+  text-decoration: underline;
+  font-weight: lighter;
+}
+
+.page-percentage{
+  font-size: 1.4em;
+}

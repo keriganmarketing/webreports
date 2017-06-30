@@ -1,0 +1,783 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AnalyticsController	app/Http/Controllers/AnalyticsController.php	/^class AnalyticsController extends Controller$/;"	c
+AppServiceProvider	app/Providers/AppServiceProvider.php	/^class AppServiceProvider extends ServiceProvider$/;"	c
+AuthServiceProvider	app/Providers/AuthServiceProvider.php	/^class AuthServiceProvider extends ServiceProvider$/;"	c
+BroadcastServiceProvider	app/Providers/BroadcastServiceProvider.php	/^class BroadcastServiceProvider extends ServiceProvider$/;"	c
+CompaniesController	app/Http/Controllers/CompaniesController.php	/^class CompaniesController extends Controller$/;"	c
+Company	app/Company.php	/^class Company extends Model$/;"	c
+Controller	app/Http/Controllers/Controller.php	/^class Controller extends BaseController$/;"	c
+CreateCompaniesTable	database/migrations/2017_04_14_142708_create_companies_table.php	/^class CreateCompaniesTable extends Migration$/;"	c
+CreatePasswordResetsTable	database/migrations/2014_10_12_100000_create_password_resets_table.php	/^class CreatePasswordResetsTable extends Migration$/;"	c
+CreateReportsTable	database/migrations/2017_04_15_051838_create_reports_table.php	/^class CreateReportsTable extends Migration$/;"	c
+CreateUsersTable	database/migrations/2014_10_12_000000_create_users_table.php	/^class CreateUsersTable extends Migration$/;"	c
+DatabaseSeeder	database/seeds/DatabaseSeeder.php	/^class DatabaseSeeder extends Seeder$/;"	c
+EncryptCookies	app/Http/Middleware/EncryptCookies.php	/^class EncryptCookies extends BaseEncrypter$/;"	c
+EventServiceProvider	app/Providers/EventServiceProvider.php	/^class EventServiceProvider extends ServiceProvider$/;"	c
+ExampleTest	tests/Feature/ExampleTest.php	/^class ExampleTest extends TestCase$/;"	c
+ExampleTest	tests/Unit/ExampleTest.php	/^class ExampleTest extends TestCase$/;"	c
+ForgotPasswordController	app/Http/Controllers/Auth/ForgotPasswordController.php	/^class ForgotPasswordController extends Controller$/;"	c
+Handler	app/Exceptions/Handler.php	/^class Handler extends ExceptionHandler$/;"	c
+Hash	public/js/app.js	/^    function Hash(entries) {$/;"	c
+Hash.clear	public/js/app.js	/^    Hash.prototype.clear = hashClear;$/;"	m
+Hash.get	public/js/app.js	/^    Hash.prototype.get = hashGet;$/;"	m
+Hash.has	public/js/app.js	/^    Hash.prototype.has = hashHas;$/;"	m
+Hash.set	public/js/app.js	/^    Hash.prototype.set = hashSet;$/;"	m
+HomeController	app/Http/Controllers/HomeController.php	/^class HomeController extends Controller$/;"	c
+Kernel	app/Console/Kernel.php	/^class Kernel extends ConsoleKernel$/;"	c
+Kernel	app/Http/Kernel.php	/^class Kernel extends HttpKernel$/;"	c
+LARAVEL_START	bootstrap/autoload.php	/^define('LARAVEL_START', microtime(true));$/;"	d
+LazyWrapper	public/js/app.js	/^    function LazyWrapper(value) {$/;"	c
+LazyWrapper.clone	public/js/app.js	/^    LazyWrapper.prototype.clone = lazyClone;$/;"	m
+LazyWrapper.compact	public/js/app.js	/^    LazyWrapper.prototype.compact = function() {$/;"	m
+LazyWrapper.constructor	public/js/app.js	/^    LazyWrapper.prototype.constructor = LazyWrapper;$/;"	m
+LazyWrapper.find	public/js/app.js	/^    LazyWrapper.prototype.find = function(predicate) {$/;"	m
+LazyWrapper.findLast	public/js/app.js	/^    LazyWrapper.prototype.findLast = function(predicate) {$/;"	m
+LazyWrapper.invokeMap	public/js/app.js	/^    LazyWrapper.prototype.invokeMap = baseRest(function(path, args) {$/;"	m
+LazyWrapper.reject	public/js/app.js	/^    LazyWrapper.prototype.reject = function(predicate) {$/;"	m
+LazyWrapper.reverse	public/js/app.js	/^    LazyWrapper.prototype.reverse = lazyReverse;$/;"	m
+LazyWrapper.slice	public/js/app.js	/^    LazyWrapper.prototype.slice = function(start, end) {$/;"	m
+LazyWrapper.takeRightWhile	public/js/app.js	/^    LazyWrapper.prototype.takeRightWhile = function(predicate) {$/;"	m
+LazyWrapper.toArray	public/js/app.js	/^    LazyWrapper.prototype.toArray = function() {$/;"	m
+LazyWrapper.value	public/js/app.js	/^    LazyWrapper.prototype.value = lazyValue;$/;"	m
+ListCache	public/js/app.js	/^    function ListCache(entries) {$/;"	c
+ListCache.clear	public/js/app.js	/^    ListCache.prototype.clear = listCacheClear;$/;"	m
+ListCache.get	public/js/app.js	/^    ListCache.prototype.get = listCacheGet;$/;"	m
+ListCache.has	public/js/app.js	/^    ListCache.prototype.has = listCacheHas;$/;"	m
+ListCache.set	public/js/app.js	/^    ListCache.prototype.set = listCacheSet;$/;"	m
+LodashWrapper	public/js/app.js	/^    function LodashWrapper(value, chainAll) {$/;"	c
+LodashWrapper.constructor	public/js/app.js	/^    LodashWrapper.prototype.constructor = LodashWrapper;$/;"	m
+LoginController	app/Http/Controllers/Auth/LoginController.php	/^class LoginController extends Controller$/;"	c
+MapCache	public/js/app.js	/^    function MapCache(entries) {$/;"	c
+MapCache.clear	public/js/app.js	/^    MapCache.prototype.clear = mapCacheClear;$/;"	m
+MapCache.get	public/js/app.js	/^    MapCache.prototype.get = mapCacheGet;$/;"	m
+MapCache.has	public/js/app.js	/^    MapCache.prototype.has = mapCacheHas;$/;"	m
+MapCache.set	public/js/app.js	/^    MapCache.prototype.set = mapCacheSet;$/;"	m
+RedirectIfAuthenticated	app/Http/Middleware/RedirectIfAuthenticated.php	/^class RedirectIfAuthenticated$/;"	c
+RegisterController	app/Http/Controllers/Auth/RegisterController.php	/^class RegisterController extends Controller$/;"	c
+Report	app/Report.php	/^class Report extends Model$/;"	c
+ReportController	app/Http/Controllers/ReportController.php	/^class ReportController extends Controller$/;"	c
+ResetPasswordController	app/Http/Controllers/Auth/ResetPasswordController.php	/^class ResetPasswordController extends Controller$/;"	c
+RouteServiceProvider	app/Providers/RouteServiceProvider.php	/^class RouteServiceProvider extends ServiceProvider$/;"	c
+SetCache	public/js/app.js	/^    function SetCache(values) {$/;"	c
+SetCache.add	public/js/app.js	/^    SetCache.prototype.add = SetCache.prototype.push = setCacheAdd;$/;"	m
+SetCache.has	public/js/app.js	/^    SetCache.prototype.has = setCacheHas;$/;"	m
+Stack	public/js/app.js	/^    function Stack(entries) {$/;"	c
+Stack.clear	public/js/app.js	/^    Stack.prototype.clear = stackClear;$/;"	m
+Stack.get	public/js/app.js	/^    Stack.prototype.get = stackGet;$/;"	m
+Stack.has	public/js/app.js	/^    Stack.prototype.has = stackHas;$/;"	m
+Stack.set	public/js/app.js	/^    Stack.prototype.set = stackSet;$/;"	m
+TestCase	tests/TestCase.php	/^abstract class TestCase extends BaseTestCase$/;"	c
+TrimStrings	app/Http/Middleware/TrimStrings.php	/^class TrimStrings extends BaseTrimmer$/;"	c
+User	app/User.php	/^class User extends Authenticatable$/;"	c
+VerifyCsrfToken	app/Http/Middleware/VerifyCsrfToken.php	/^class VerifyCsrfToken extends BaseVerifier$/;"	c
+_	public/js/app.js	/^  var _ = runInContext();$/;"	v
+__construct	app/Http/Controllers/AnalyticsController.php	/^    public function __construct()$/;"	f
+__construct	app/Http/Controllers/Auth/ForgotPasswordController.php	/^    public function __construct()$/;"	f
+__construct	app/Http/Controllers/Auth/LoginController.php	/^    public function __construct()$/;"	f
+__construct	app/Http/Controllers/Auth/RegisterController.php	/^    public function __construct()$/;"	f
+__construct	app/Http/Controllers/Auth/ResetPasswordController.php	/^    public function __construct()$/;"	f
+__construct	app/Http/Controllers/HomeController.php	/^    public function __construct()$/;"	f
+__currentLoopData	storage/framework/views/e0d9b454bcb5ad9ca4dceb836fd1b7301ec292aa.php	/^                            <?php $__currentLoopData = $companies; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $company): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>$/;"	v
+__webpack_require__	public/js/app.js	/^\/******\/ 	function __webpack_require__(moduleId) {$/;"	f
+__webpack_require__.d	public/js/app.js	/^\/******\/ 	__webpack_require__.d = function(exports, name, getter) {$/;"	f
+__webpack_require__.i	public/js/app.js	/^\/******\/ 	__webpack_require__.i = function(value) { return value; };$/;"	f
+__webpack_require__.n	public/js/app.js	/^\/******\/ 	__webpack_require__.n = function(module) {$/;"	f
+__webpack_require__.o	public/js/app.js	/^\/******\/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };$/;"	f
+after	public/js/app.js	/^    function after(n, func) {$/;"	f
+aliases	config/app.php	/^    | This array of class aliases will be registered when this application$/;"	c
+analyticsData	app/Report.php	/^        $analyticsData = $this->trimKeys($data)->all();$/;"	v
+app	bootstrap/app.php	/^$app = new Illuminate\\Foundation\\Application($/;"	v
+app	public/index.php	/^$app = require_once __DIR__.'\/..\/bootstrap\/app.php';$/;"	v
+app	tests/CreatesApplication.php	/^        $app = require __DIR__.'\/..\/bootstrap\/app.php';$/;"	v
+arrayLikeKeys	public/js/app.js	/^    function arrayLikeKeys(value, inherited) {$/;"	f
+arraySample	public/js/app.js	/^    function arraySample(array) {$/;"	f
+arraySampleSize	public/js/app.js	/^    function arraySampleSize(array, n) {$/;"	f
+arrayShuffle	public/js/app.js	/^    function arrayShuffle(array) {$/;"	f
+ary	public/js/app.js	/^    function ary(func, n, guard) {$/;"	f
+as	config/mail.php	/^    | Laravel supports both SMTP and PHP's "mail" function as drivers for the$/;"	f
+assignMergeValue	public/js/app.js	/^    function assignMergeValue(object, key, value) {$/;"	f
+assignValue	public/js/app.js	/^    function assignValue(object, key, value) {$/;"	f
+assocIndexOf	public/js/app.js	/^    function assocIndexOf(array, key) {$/;"	f
+average	app/Http/Controllers/AnalyticsController.php	/^       $average = DB::table('reports')->where([$/;"	v
+avgData	app/Http/Controllers/AnalyticsController.php	/^    protected function avgData($year, $month, $column)$/;"	f
+baseAggregator	public/js/app.js	/^    function baseAggregator(collection, setter, iteratee, accumulator) {$/;"	f
+baseAssign	public/js/app.js	/^    function baseAssign(object, source) {$/;"	f
+baseAssignIn	public/js/app.js	/^    function baseAssignIn(object, source) {$/;"	f
+baseAssignValue	public/js/app.js	/^    function baseAssignValue(object, key, value) {$/;"	f
+baseAt	public/js/app.js	/^    function baseAt(object, paths) {$/;"	f
+baseClamp	public/js/app.js	/^    function baseClamp(number, lower, upper) {$/;"	f
+baseClone	public/js/app.js	/^    function baseClone(value, bitmask, customizer, key, object, stack) {$/;"	f
+baseConforms	public/js/app.js	/^    function baseConforms(source) {$/;"	f
+baseConformsTo	public/js/app.js	/^    function baseConformsTo(object, source, props) {$/;"	f
+baseDelay	public/js/app.js	/^    function baseDelay(func, wait, args) {$/;"	f
+baseDifference	public/js/app.js	/^    function baseDifference(array, values, iteratee, comparator) {$/;"	f
+baseEach	public/js/app.js	/^    var baseEach = createBaseEach(baseForOwn);$/;"	v
+baseEachRight	public/js/app.js	/^    var baseEachRight = createBaseEach(baseForOwnRight, true);$/;"	v
+baseEvery	public/js/app.js	/^    function baseEvery(collection, predicate) {$/;"	f
+baseExtremum	public/js/app.js	/^    function baseExtremum(array, iteratee, comparator) {$/;"	f
+baseFill	public/js/app.js	/^    function baseFill(array, value, start, end) {$/;"	f
+baseFilter	public/js/app.js	/^    function baseFilter(collection, predicate) {$/;"	f
+baseFlatten	public/js/app.js	/^    function baseFlatten(array, depth, predicate, isStrict, result) {$/;"	f
+baseFor	public/js/app.js	/^    var baseFor = createBaseFor();$/;"	v
+baseForOwn	public/js/app.js	/^    function baseForOwn(object, iteratee) {$/;"	f
+baseForOwnRight	public/js/app.js	/^    function baseForOwnRight(object, iteratee) {$/;"	f
+baseForRight	public/js/app.js	/^    var baseForRight = createBaseFor(true);$/;"	v
+baseFunctions	public/js/app.js	/^    function baseFunctions(object, props) {$/;"	f
+baseGet	public/js/app.js	/^    function baseGet(object, path) {$/;"	f
+baseGetAllKeys	public/js/app.js	/^    function baseGetAllKeys(object, keysFunc, symbolsFunc) {$/;"	f
+baseGetTag	public/js/app.js	/^    function baseGetTag(value) {$/;"	f
+baseGt	public/js/app.js	/^    function baseGt(value, other) {$/;"	f
+baseHas	public/js/app.js	/^    function baseHas(object, key) {$/;"	f
+baseHasIn	public/js/app.js	/^    function baseHasIn(object, key) {$/;"	f
+baseInRange	public/js/app.js	/^    function baseInRange(number, start, end) {$/;"	f
+baseIntersection	public/js/app.js	/^    function baseIntersection(arrays, iteratee, comparator) {$/;"	f
+baseInverter	public/js/app.js	/^    function baseInverter(object, setter, iteratee, accumulator) {$/;"	f
+baseInvoke	public/js/app.js	/^    function baseInvoke(object, path, args) {$/;"	f
+baseIsArguments	public/js/app.js	/^    function baseIsArguments(value) {$/;"	f
+baseIsArrayBuffer	public/js/app.js	/^    function baseIsArrayBuffer(value) {$/;"	f
+baseIsDate	public/js/app.js	/^    function baseIsDate(value) {$/;"	f
+baseIsEqual	public/js/app.js	/^    function baseIsEqual(value, other, bitmask, customizer, stack) {$/;"	f
+baseIsEqualDeep	public/js/app.js	/^    function baseIsEqualDeep(object, other, bitmask, customizer, equalFunc, stack) {$/;"	f
+baseIsMap	public/js/app.js	/^    function baseIsMap(value) {$/;"	f
+baseIsMatch	public/js/app.js	/^    function baseIsMatch(object, source, matchData, customizer) {$/;"	f
+baseIsNative	public/js/app.js	/^    function baseIsNative(value) {$/;"	f
+baseIsRegExp	public/js/app.js	/^    function baseIsRegExp(value) {$/;"	f
+baseIsSet	public/js/app.js	/^    function baseIsSet(value) {$/;"	f
+baseIsTypedArray	public/js/app.js	/^    function baseIsTypedArray(value) {$/;"	f
+baseIteratee	public/js/app.js	/^    function baseIteratee(value) {$/;"	f
+baseKeys	public/js/app.js	/^    function baseKeys(object) {$/;"	f
+baseKeysIn	public/js/app.js	/^    function baseKeysIn(object) {$/;"	f
+baseLodash	public/js/app.js	/^    function baseLodash() {$/;"	f
+baseLt	public/js/app.js	/^    function baseLt(value, other) {$/;"	f
+baseMap	public/js/app.js	/^    function baseMap(collection, iteratee) {$/;"	f
+baseMatches	public/js/app.js	/^    function baseMatches(source) {$/;"	f
+baseMatchesProperty	public/js/app.js	/^    function baseMatchesProperty(path, srcValue) {$/;"	f
+baseMerge	public/js/app.js	/^    function baseMerge(object, source, srcIndex, customizer, stack) {$/;"	f
+baseMergeDeep	public/js/app.js	/^    function baseMergeDeep(object, source, key, srcIndex, mergeFunc, customizer, stack) {$/;"	f
+baseNth	public/js/app.js	/^    function baseNth(array, n) {$/;"	f
+baseOrderBy	public/js/app.js	/^    function baseOrderBy(collection, iteratees, orders) {$/;"	f
+basePick	public/js/app.js	/^    function basePick(object, paths) {$/;"	f
+basePickBy	public/js/app.js	/^    function basePickBy(object, paths, predicate) {$/;"	f
+basePropertyDeep	public/js/app.js	/^    function basePropertyDeep(path) {$/;"	f
+basePullAll	public/js/app.js	/^    function basePullAll(array, values, iteratee, comparator) {$/;"	f
+basePullAt	public/js/app.js	/^    function basePullAt(array, indexes) {$/;"	f
+baseRandom	public/js/app.js	/^    function baseRandom(lower, upper) {$/;"	f
+baseRange	public/js/app.js	/^    function baseRange(start, end, step, fromRight) {$/;"	f
+baseRepeat	public/js/app.js	/^    function baseRepeat(string, n) {$/;"	f
+baseRest	public/js/app.js	/^    function baseRest(func, start) {$/;"	f
+baseSample	public/js/app.js	/^    function baseSample(collection) {$/;"	f
+baseSampleSize	public/js/app.js	/^    function baseSampleSize(collection, n) {$/;"	f
+baseSet	public/js/app.js	/^    function baseSet(object, path, value, customizer) {$/;"	f
+baseShuffle	public/js/app.js	/^    function baseShuffle(collection) {$/;"	f
+baseSlice	public/js/app.js	/^    function baseSlice(array, start, end) {$/;"	f
+baseSome	public/js/app.js	/^    function baseSome(collection, predicate) {$/;"	f
+baseSortedIndex	public/js/app.js	/^    function baseSortedIndex(array, value, retHighest) {$/;"	f
+baseSortedIndexBy	public/js/app.js	/^    function baseSortedIndexBy(array, value, iteratee, retHighest) {$/;"	f
+baseSortedUniq	public/js/app.js	/^    function baseSortedUniq(array, iteratee) {$/;"	f
+baseToNumber	public/js/app.js	/^    function baseToNumber(value) {$/;"	f
+baseToString	public/js/app.js	/^    function baseToString(value) {$/;"	f
+baseUniq	public/js/app.js	/^    function baseUniq(array, iteratee, comparator) {$/;"	f
+baseUnset	public/js/app.js	/^    function baseUnset(object, path) {$/;"	f
+baseUpdate	public/js/app.js	/^    function baseUpdate(object, path, updater, customizer) {$/;"	f
+baseWhile	public/js/app.js	/^    function baseWhile(array, predicate, isDrop, fromRight) {$/;"	f
+baseWrapperValue	public/js/app.js	/^    function baseWrapperValue(value, actions) {$/;"	f
+baseXor	public/js/app.js	/^    function baseXor(arrays, iteratee, comparator) {$/;"	f
+baseZipObject	public/js/app.js	/^    function baseZipObject(props, values, assignFunc) {$/;"	f
+before	public/js/app.js	/^    function before(n, func) {$/;"	f
+boot	app/Providers/AppServiceProvider.php	/^    public function boot()$/;"	f
+boot	app/Providers/AuthServiceProvider.php	/^    public function boot()$/;"	f
+boot	app/Providers/BroadcastServiceProvider.php	/^    public function boot()$/;"	f
+boot	app/Providers/EventServiceProvider.php	/^    public function boot()$/;"	f
+boot	app/Providers/RouteServiceProvider.php	/^    public function boot()$/;"	f
+calculateDaysInMonth	app/Report.php	/^    public function calculateDaysInMonth($year, $month)$/;"	f
+calculatePercentage	app/Http/Controllers/AnalyticsController.php	/^    protected function calculatePercentage($part, $whole)$/;"	f
+capitalize	public/js/app.js	/^    function capitalize(string) {$/;"	f
+castArray	public/js/app.js	/^    function castArray() {$/;"	f
+castArrayLikeObject	public/js/app.js	/^    function castArrayLikeObject(value) {$/;"	f
+castFunction	public/js/app.js	/^    function castFunction(value) {$/;"	f
+castPath	public/js/app.js	/^    function castPath(value, object) {$/;"	f
+castSlice	public/js/app.js	/^    function castSlice(array, start, end) {$/;"	f
+chain	public/js/app.js	/^    function chain(value) {$/;"	f
+channelData	app/Report.php	/^        $channelData = $client->performQuery($period, $compareParams, $otherParams)['rows'];$/;"	v
+channels	app/Http/Controllers/AnalyticsController.php	/^        $channels             = $report->fetchChannels($client, $currentPeriod);$/;"	v
+checkDatabase	app/Http/Controllers/AnalyticsController.php	/^    public function checkDatabase(Company $company, $year, $month)$/;"	f
+chunk	public/js/app.js	/^    function chunk(array, size, guard) {$/;"	f
+clamp	public/js/app.js	/^    function clamp(number, lower, upper) {$/;"	f
+class	resources/views/reports/show.blade.php	/^                            $class = 'green';$/;"	v
+class	resources/views/reports/show.blade.php	/^                            $class = 'red';$/;"	v
+class	storage/framework/views/98336c851461c2334ce9697d87130e807b0f716f.php	/^                            $class = 'green';$/;"	v
+class	storage/framework/views/98336c851461c2334ce9697d87130e807b0f716f.php	/^                            $class = 'red';$/;"	v
+client	app/Http/Controllers/AnalyticsController.php	/^        $client                = Analytics::setViewId($company->viewId);$/;"	v
+clone	public/js/app.js	/^    function clone(value) {$/;"	f
+cloneArrayBuffer	public/js/app.js	/^    function cloneArrayBuffer(arrayBuffer) {$/;"	f
+cloneBuffer	public/js/app.js	/^    function cloneBuffer(buffer, isDeep) {$/;"	f
+cloneDataView	public/js/app.js	/^    function cloneDataView(dataView, isDeep) {$/;"	f
+cloneDeep	public/js/app.js	/^    function cloneDeep(value) {$/;"	f
+cloneDeepWith	public/js/app.js	/^    function cloneDeepWith(value, customizer) {$/;"	f
+cloneMap	public/js/app.js	/^    function cloneMap(map, isDeep, cloneFunc) {$/;"	f
+cloneRegExp	public/js/app.js	/^    function cloneRegExp(regexp) {$/;"	f
+cloneSet	public/js/app.js	/^    function cloneSet(set, isDeep, cloneFunc) {$/;"	f
+cloneSymbol	public/js/app.js	/^    function cloneSymbol(symbol) {$/;"	f
+cloneTypedArray	public/js/app.js	/^    function cloneTypedArray(typedArray, isDeep) {$/;"	f
+cloneWith	public/js/app.js	/^    function cloneWith(value, customizer) {$/;"	f
+collection	app/Report.php	/^         $collection = collect($data);$/;"	v
+commands	app/Console/Kernel.php	/^    protected $commands = [$/;"	v
+commands	app/Console/Kernel.php	/^    protected function commands()$/;"	f
+compact	public/js/app.js	/^    function compact(array) {$/;"	f
+companies	app/Http/Controllers/HomeController.php	/^        $companies = Company::all()->sortBy('name');$/;"	v
+company	app/Http/Controllers/AnalyticsController.php	/^        $company     = Company::find($company->id);$/;"	v
+company	app/Report.php	/^    public function company()$/;"	f
+compareAscending	public/js/app.js	/^    function compareAscending(value, other) {$/;"	f
+compareMultiple	public/js/app.js	/^    function compareMultiple(object, other, orders) {$/;"	f
+compareParams	app/Report.php	/^         $compareParams = 'ga:sessions';$/;"	v
+compareParams	app/Report.php	/^        $compareParams = 'ga:pageviews';$/;"	v
+compareParams	app/Report.php	/^        $compareParams = 'ga:sessions';$/;"	v
+compareParams	app/Report.php	/^        $compareParams = 'ga:sessions, ga:users, ga:pageViews, ga:pageViewsPerSession, ga:avgSessionDuration, ga:bounceRate, ga:percentNewSessions';$/;"	v
+compareWithLastMonth	app/Http/Controllers/AnalyticsController.php	/^    protected function compareWithLastMonth($client, $report, $year, $month)$/;"	f
+comparedWithLastMonth	app/Http/Controllers/AnalyticsController.php	/^            $comparedWithLastMonth            = true;$/;"	v
+comparedWithLastMonth	app/Http/Controllers/AnalyticsController.php	/^        $comparedWithLastMonth = false;$/;"	v
+composeArgs	public/js/app.js	/^    function composeArgs(args, partials, holders, isCurried) {$/;"	f
+composeArgsRight	public/js/app.js	/^    function composeArgsRight(args, partials, holders, isCurried) {$/;"	f
+concat	public/js/app.js	/^    function concat() {$/;"	f
+cond	public/js/app.js	/^    function cond(pairs) {$/;"	f
+conforms	public/js/app.js	/^    function conforms(source) {$/;"	f
+conformsTo	public/js/app.js	/^    function conformsTo(object, source) {$/;"	f
+constant	public/js/app.js	/^    function constant(value) {$/;"	f
+copyArray	public/js/app.js	/^    function copyArray(source, array) {$/;"	f
+copyObject	public/js/app.js	/^    function copyObject(source, props, object, customizer) {$/;"	f
+copySymbols	public/js/app.js	/^    function copySymbols(source, object) {$/;"	f
+copySymbolsIn	public/js/app.js	/^    function copySymbolsIn(source, object) {$/;"	f
+create	app/Http/Controllers/Auth/RegisterController.php	/^    protected function create(array $data)$/;"	f
+create	app/Http/Controllers/CompaniesController.php	/^    public function create()$/;"	f
+create	app/Http/Controllers/ReportController.php	/^    public function create()$/;"	f
+create	public/js/app.js	/^    function create(prototype, properties) {$/;"	f
+createAggregator	public/js/app.js	/^    function createAggregator(setter, initializer) {$/;"	f
+createApplication	tests/CreatesApplication.php	/^    public function createApplication()$/;"	f
+createAssigner	public/js/app.js	/^    function createAssigner(assigner) {$/;"	f
+createBaseEach	public/js/app.js	/^    function createBaseEach(eachFunc, fromRight) {$/;"	f
+createBaseFor	public/js/app.js	/^    function createBaseFor(fromRight) {$/;"	f
+createBind	public/js/app.js	/^    function createBind(func, bitmask, thisArg) {$/;"	f
+createBind.wrapper	public/js/app.js	/^      function wrapper() {$/;"	f
+createCaseFirst	public/js/app.js	/^    function createCaseFirst(methodName) {$/;"	f
+createCompounder	public/js/app.js	/^    function createCompounder(callback) {$/;"	f
+createCtor	public/js/app.js	/^    function createCtor(Ctor) {$/;"	f
+createCurry	public/js/app.js	/^    function createCurry(func, bitmask, arity) {$/;"	f
+createCurry.wrapper	public/js/app.js	/^      function wrapper() {$/;"	f
+createFind	public/js/app.js	/^    function createFind(findIndexFunc) {$/;"	f
+createFlow	public/js/app.js	/^    function createFlow(fromRight) {$/;"	f
+createHybrid	public/js/app.js	/^    function createHybrid(func, bitmask, thisArg, partials, holders, partialsRight, holdersRight, argPos, ary, arity) {$/;"	f
+createHybrid.wrapper	public/js/app.js	/^      function wrapper() {$/;"	f
+createInverter	public/js/app.js	/^    function createInverter(setter, toIteratee) {$/;"	f
+createMathOperation	public/js/app.js	/^    function createMathOperation(operator, defaultValue) {$/;"	f
+createOver	public/js/app.js	/^    function createOver(arrayFunc) {$/;"	f
+createPadding	public/js/app.js	/^    function createPadding(length, chars) {$/;"	f
+createPartial	public/js/app.js	/^    function createPartial(func, bitmask, thisArg, partials) {$/;"	f
+createPartial.wrapper	public/js/app.js	/^      function wrapper() {$/;"	f
+createRange	public/js/app.js	/^    function createRange(fromRight) {$/;"	f
+createRecurry	public/js/app.js	/^    function createRecurry(func, bitmask, wrapFunc, placeholder, thisArg, partials, holders, argPos, ary, arity) {$/;"	f
+createRelationalOperation	public/js/app.js	/^    function createRelationalOperation(operator) {$/;"	f
+createRound	public/js/app.js	/^    function createRound(methodName) {$/;"	f
+createToPairs	public/js/app.js	/^    function createToPairs(keysFunc) {$/;"	f
+createWrap	public/js/app.js	/^    function createWrap(func, bitmask, thisArg, partials, holders, argPos, ary, arity) {$/;"	f
+current	app/Http/Controllers/AnalyticsController.php	/^        $current  = $report->fetchAnalyticsData($client, $currentPeriod);$/;"	v
+currentAverageDailySessions	app/Http/Controllers/AnalyticsController.php	/^        $currentAverageDailySessions = ($totalCurrentSessions \/ $daysInMonth);$/;"	v
+currentDates	app/Http/Controllers/AnalyticsController.php	/^        $currentDates  = $report->determineDates($year, $month);$/;"	v
+currentPageViews	app/Http/Controllers/AnalyticsController.php	/^        $currentPageViews = $this->sumData($year, $month, 'current_page_views');$/;"	v
+currentPagesPerSession	app/Http/Controllers/AnalyticsController.php	/^        $currentPagesPerSession = $this->avgData($year, $month, 'current_pages_per_session');$/;"	v
+currentPeriod	app/Http/Controllers/AnalyticsController.php	/^        $currentPeriod  = Period::create($currentDates['start'], $currentDates['end']);$/;"	v
+currentSessionDuration	app/Http/Controllers/AnalyticsController.php	/^        $currentSessionDuration = $this->avgData($year, $month, 'current_average_session_duration');$/;"	v
+currentSessions	app/Http/Controllers/AnalyticsController.php	/^        $currentSessions = $this->sumData($year, $month, 'current_average_daily_sessions');$/;"	v
+currentUsers	app/Http/Controllers/AnalyticsController.php	/^        $currentUsers = $this->sumData($year, $month, 'current_users');$/;"	v
+curry	public/js/app.js	/^    function curry(func, arity, guard) {$/;"	f
+curryRight	public/js/app.js	/^    function curryRight(func, arity, guard) {$/;"	f
+customDefaultsAssignIn	public/js/app.js	/^    function customDefaultsAssignIn(objValue, srcValue, key, object) {$/;"	f
+customDefaultsMerge	public/js/app.js	/^    function customDefaultsMerge(objValue, srcValue, key, object, source, stack) {$/;"	f
+customOmitClone	public/js/app.js	/^    function customOmitClone(value) {$/;"	f
+data	app/Report.php	/^         $data = $client->performQuery($period, $compareParams, $dimensions)['rows'];$/;"	v
+data	app/Report.php	/^        $data = $client->performQuery($period, $compareParams)->totalsForAllResults;$/;"	v
+data	app/Report.php	/^        $data = $this->trimKeys($client->performQuery($period, $compareParams, $otherParams)->totalsForAllResults)['sessions'];$/;"	v
+daysInMonth	app/Http/Controllers/AnalyticsController.php	/^            $daysInMonth                      = $report->calculateDaysInMonth($year, $previousMonth);$/;"	v
+daysInMonth	app/Http/Controllers/AnalyticsController.php	/^        $daysInMonth = $report->calculateDaysInMonth($year, $month);$/;"	v
+debounce	public/js/app.js	/^    function debounce(func, wait, options) {$/;"	f
+debounce.cancel	public/js/app.js	/^      function cancel() {$/;"	f
+debounce.debounced	public/js/app.js	/^      function debounced() {$/;"	f
+debounce.flush	public/js/app.js	/^      function flush() {$/;"	f
+debounce.invokeFunc	public/js/app.js	/^      function invokeFunc(time) {$/;"	f
+debounce.leadingEdge	public/js/app.js	/^      function leadingEdge(time) {$/;"	f
+debounce.remainingWait	public/js/app.js	/^      function remainingWait(time) {$/;"	f
+debounce.shouldInvoke	public/js/app.js	/^      function shouldInvoke(time) {$/;"	f
+debounce.timerExpired	public/js/app.js	/^      function timerExpired() {$/;"	f
+debounce.trailingEdge	public/js/app.js	/^      function trailingEdge(time) {$/;"	f
+deburr	public/js/app.js	/^    function deburr(string) {$/;"	f
+defaultTo	public/js/app.js	/^    function defaultTo(value, defaultValue) {$/;"	f
+desiredMonth	app/Report.php	/^        $desiredMonth = Carbon::now()->year($year)->month($month)->startOfMonth();$/;"	v
+desktopPercentage	app/Http/Controllers/AnalyticsController.php	/^            $desktopPercentage = $this->calculatePercentage($desktopSessions, $totalCurrentSessions);$/;"	v
+desktopSessions	app/Http/Controllers/AnalyticsController.php	/^        $desktopSessions  = isset($deviceCategories['desktop']) ? $deviceCategories['desktop'] : null;$/;"	v
+destroy	app/Http/Controllers/CompaniesController.php	/^    public function destroy(Company $company)$/;"	f
+destroy	app/Http/Controllers/ReportController.php	/^    public function destroy(Report $report)$/;"	f
+determineDates	app/Report.php	/^    public function determineDates($year, $month)$/;"	f
+determineName	app/Report.php	/^    public static function determineName($name)$/;"	f
+deviceCategories	app/Http/Controllers/AnalyticsController.php	/^        $deviceCategories = $report->fetchDeviceCategories($client, $currentPeriod);$/;"	v
+dimensions	app/Report.php	/^         $dimensions = ['dimensions' => 'ga:deviceCategory'];$/;"	v
+directTraffic	app/Http/Controllers/AnalyticsController.php	/^        $directTraffic        = $this->calculatePercentage($channels['direct'], $totalCurrentSessions);$/;"	v
+dontReport	app/Exceptions/Handler.php	/^    protected $dontReport = [$/;"	v
+down	database/migrations/2014_10_12_000000_create_users_table.php	/^    public function down()$/;"	f
+down	database/migrations/2014_10_12_100000_create_password_resets_table.php	/^    public function down()$/;"	f
+down	database/migrations/2017_04_14_142708_create_companies_table.php	/^    public function down()$/;"	f
+down	database/migrations/2017_04_15_051838_create_reports_table.php	/^    public function down()$/;"	f
+drop	public/js/app.js	/^    function drop(array, n, guard) {$/;"	f
+dropRight	public/js/app.js	/^    function dropRight(array, n, guard) {$/;"	f
+dropRightWhile	public/js/app.js	/^    function dropRightWhile(array, predicate) {$/;"	f
+dropWhile	public/js/app.js	/^    function dropWhile(array, predicate) {$/;"	f
+edit	app/Http/Controllers/CompaniesController.php	/^    public function edit(Company $company)$/;"	f
+edit	app/Http/Controllers/ReportController.php	/^    public function edit(Report $report)$/;"	f
+emailSearchTraffic	app/Http/Controllers/AnalyticsController.php	/^            $emailSearchTraffic = 0;$/;"	v
+emailSearchTraffic	app/Http/Controllers/AnalyticsController.php	/^        $emailSearchTraffic   = 100 - ($directTraffic + $organicSearchTraffic + $referralTraffic + $socialTraffic + $paidSearch);$/;"	v
+endsWith	public/js/app.js	/^    function endsWith(string, target, position) {$/;"	f
+eq	public/js/app.js	/^    function eq(value, other) {$/;"	f
+equalArrays	public/js/app.js	/^    function equalArrays(array, other, bitmask, customizer, equalFunc, stack) {$/;"	f
+equalByTag	public/js/app.js	/^    function equalByTag(object, other, tag, bitmask, customizer, equalFunc, stack) {$/;"	f
+equalObjects	public/js/app.js	/^    function equalObjects(object, other, bitmask, customizer, equalFunc, stack) {$/;"	f
+escape	public/js/app.js	/^    function escape(string) {$/;"	f
+escapeRegExp	public/js/app.js	/^    function escapeRegExp(string) {$/;"	f
+every	public/js/app.js	/^    function every(collection, predicate, guard) {$/;"	f
+except	app/Http/Middleware/EncryptCookies.php	/^    protected $except = [$/;"	v
+except	app/Http/Middleware/TrimStrings.php	/^    protected $except = [$/;"	v
+except	app/Http/Middleware/VerifyCsrfToken.php	/^    protected $except = [$/;"	v
+fetchAnalyticsData	app/Report.php	/^    public function fetchAnalyticsData($client, Period $period)$/;"	f
+fetchChannels	app/Report.php	/^    public function fetchChannels($client, $period)$/;"	f
+fetchDeviceCategories	app/Report.php	/^    public function fetchDeviceCategories($client, $period)$/;"	f
+fetchPaidSearchData	app/Report.php	/^    public function fetchPaidSearchData($client, $period)$/;"	f
+fetchTopPages	app/Report.php	/^    public function fetchTopPages($client, $period)$/;"	f
+fill	public/js/app.js	/^    function fill(array, value, start, end) {$/;"	f
+fillable	app/User.php	/^    protected $fillable = [$/;"	v
+filter	public/js/app.js	/^    function filter(collection, predicate) {$/;"	f
+finalReport	app/Http/Controllers/AnalyticsController.php	/^        $finalReport = Report::create([$/;"	v
+finalReport	app/Http/Controllers/AnalyticsController.php	/^       $finalReport = Report::where([$/;"	v
+findIndex	public/js/app.js	/^    function findIndex(array, predicate, fromIndex) {$/;"	f
+findKey	public/js/app.js	/^    function findKey(object, predicate) {$/;"	f
+findLastIndex	public/js/app.js	/^    function findLastIndex(array, predicate, fromIndex) {$/;"	f
+findLastKey	public/js/app.js	/^    function findLastKey(object, predicate) {$/;"	f
+flatMap	public/js/app.js	/^    function flatMap(collection, iteratee) {$/;"	f
+flatMapDeep	public/js/app.js	/^    function flatMapDeep(collection, iteratee) {$/;"	f
+flatMapDepth	public/js/app.js	/^    function flatMapDepth(collection, iteratee, depth) {$/;"	f
+flatRest	public/js/app.js	/^    function flatRest(func) {$/;"	f
+flatten	public/js/app.js	/^    function flatten(array) {$/;"	f
+flattenDeep	public/js/app.js	/^    function flattenDeep(array) {$/;"	f
+flattenDepth	public/js/app.js	/^    function flattenDepth(array, depth) {$/;"	f
+flip	public/js/app.js	/^    function flip(func) {$/;"	f
+forEach	public/js/app.js	/^    function forEach(collection, iteratee) {$/;"	f
+forEachRight	public/js/app.js	/^    function forEachRight(collection, iteratee) {$/;"	f
+forIn	public/js/app.js	/^    function forIn(object, iteratee) {$/;"	f
+forInRight	public/js/app.js	/^    function forInRight(object, iteratee) {$/;"	f
+forOwn	public/js/app.js	/^    function forOwn(object, iteratee) {$/;"	f
+forOwnRight	public/js/app.js	/^    function forOwnRight(object, iteratee) {$/;"	f
+formattedArray	app/Report.php	/^        $formattedArray = [];$/;"	v
+fromPairs	public/js/app.js	/^    function fromPairs(pairs) {$/;"	f
+functions	public/js/app.js	/^    function functions(object) {$/;"	f
+functionsIn	public/js/app.js	/^    function functionsIn(object) {$/;"	f
+get	public/js/app.js	/^    function get(object, path, defaultValue) {$/;"	f
+getAllKeys	public/js/app.js	/^    function getAllKeys(object) {$/;"	f
+getAllKeysIn	public/js/app.js	/^    function getAllKeysIn(object) {$/;"	f
+getFuncName	public/js/app.js	/^    function getFuncName(func) {$/;"	f
+getHolder	public/js/app.js	/^    function getHolder(func) {$/;"	f
+getIteratee	public/js/app.js	/^    function getIteratee() {$/;"	f
+getMapData	public/js/app.js	/^    function getMapData(map, key) {$/;"	f
+getMatchData	public/js/app.js	/^    function getMatchData(object) {$/;"	f
+getNative	public/js/app.js	/^    function getNative(object, key) {$/;"	f
+getRawTag	public/js/app.js	/^    function getRawTag(value) {$/;"	f
+getTag	public/js/app.js	/^      getTag = function(value) {$/;"	f
+getView	public/js/app.js	/^    function getView(start, end, transforms) {$/;"	f
+getWrapDetails	public/js/app.js	/^    function getWrapDetails(source) {$/;"	f
+guard	app/Http/Middleware/RedirectIfAuthenticated.php	/^    public function handle($request, Closure $next, $guard = null)$/;"	v
+guarded	app/Company.php	/^    protected $guarded = [];$/;"	v
+guarded	app/Report.php	/^    protected $guarded = [];$/;"	v
+handle	app/Http/Middleware/RedirectIfAuthenticated.php	/^    public function handle($request, Closure $next, $guard = null)$/;"	f
+has	public/js/app.js	/^    function has(object, path) {$/;"	f
+hasIn	public/js/app.js	/^    function hasIn(object, path) {$/;"	f
+hasPath	public/js/app.js	/^    function hasPath(object, path, hasFunc) {$/;"	f
+hashClear	public/js/app.js	/^    function hashClear() {$/;"	c
+hashDelete	public/js/app.js	/^    function hashDelete(key) {$/;"	c
+hashGet	public/js/app.js	/^    function hashGet(key) {$/;"	f
+hashHas	public/js/app.js	/^    function hashHas(key) {$/;"	f
+hashSet	public/js/app.js	/^    function hashSet(key, value) {$/;"	c
+head	public/js/app.js	/^    function head(array) {$/;"	f
+hidden	app/User.php	/^    protected $hidden = [$/;"	v
+id	app/Company.php	/^    protected $id;$/;"	v
+identity	public/js/app.js	/^    function identity(value) {$/;"	f
+inRange	public/js/app.js	/^    function inRange(number, start, end) {$/;"	f
+includes	public/js/app.js	/^    function includes(collection, value, fromIndex, guard) {$/;"	f
+index	app/Http/Controllers/CompaniesController.php	/^    public function index()$/;"	f
+index	app/Http/Controllers/HomeController.php	/^    public function index()$/;"	f
+index	app/Http/Controllers/ReportController.php	/^    public function index()$/;"	f
+indexOf	public/js/app.js	/^    function indexOf(array, value, fromIndex) {$/;"	f
+initCloneArray	public/js/app.js	/^    function initCloneArray(array) {$/;"	f
+initCloneByTag	public/js/app.js	/^    function initCloneByTag(object, tag, cloneFunc, isDeep) {$/;"	f
+initCloneObject	public/js/app.js	/^    function initCloneObject(object) {$/;"	f
+initial	public/js/app.js	/^    function initial(array) {$/;"	f
+insertWrapDetails	public/js/app.js	/^    function insertWrapDetails(source, details) {$/;"	f
+isArray	public/js/app.js	/^    var isArray = Array.isArray;$/;"	v
+isArrayBuffer	public/js/app.js	/^    var isArrayBuffer = nodeIsArrayBuffer ? baseUnary(nodeIsArrayBuffer) : baseIsArrayBuffer;$/;"	v
+isArrayLike	public/js/app.js	/^    function isArrayLike(value) {$/;"	f
+isArrayLikeObject	public/js/app.js	/^    function isArrayLikeObject(value) {$/;"	f
+isBoolean	public/js/app.js	/^    function isBoolean(value) {$/;"	f
+isBuffer	public/js/app.js	/^    var isBuffer = nativeIsBuffer || stubFalse;$/;"	v
+isDate	public/js/app.js	/^    var isDate = nodeIsDate ? baseUnary(nodeIsDate) : baseIsDate;$/;"	v
+isElement	public/js/app.js	/^    function isElement(value) {$/;"	f
+isEmpty	public/js/app.js	/^    function isEmpty(value) {$/;"	f
+isEqual	public/js/app.js	/^    function isEqual(value, other) {$/;"	f
+isEqualWith	public/js/app.js	/^    function isEqualWith(value, other, customizer) {$/;"	f
+isError	public/js/app.js	/^    function isError(value) {$/;"	f
+isFinite	public/js/app.js	/^    function isFinite(value) {$/;"	f
+isFlattenable	public/js/app.js	/^    function isFlattenable(value) {$/;"	f
+isFunction	public/js/app.js	/^    function isFunction(value) {$/;"	f
+isIndex	public/js/app.js	/^    function isIndex(value, length) {$/;"	f
+isInteger	public/js/app.js	/^    function isInteger(value) {$/;"	f
+isIterateeCall	public/js/app.js	/^    function isIterateeCall(value, index, object) {$/;"	f
+isKey	public/js/app.js	/^    function isKey(value, object) {$/;"	f
+isKeyable	public/js/app.js	/^    function isKeyable(value) {$/;"	f
+isLaziable	public/js/app.js	/^    function isLaziable(func) {$/;"	f
+isLength	public/js/app.js	/^    function isLength(value) {$/;"	f
+isMap	public/js/app.js	/^    var isMap = nodeIsMap ? baseUnary(nodeIsMap) : baseIsMap;$/;"	v
+isMaskable	public/js/app.js	/^    var isMaskable = coreJsData ? isFunction : stubFalse;$/;"	v
+isMasked	public/js/app.js	/^    function isMasked(func) {$/;"	f
+isMatch	public/js/app.js	/^    function isMatch(object, source) {$/;"	f
+isMatchWith	public/js/app.js	/^    function isMatchWith(object, source, customizer) {$/;"	f
+isNaN	public/js/app.js	/^    function isNaN(value) {$/;"	f
+isNative	public/js/app.js	/^    function isNative(value) {$/;"	f
+isNil	public/js/app.js	/^    function isNil(value) {$/;"	f
+isNull	public/js/app.js	/^    function isNull(value) {$/;"	f
+isNumber	public/js/app.js	/^    function isNumber(value) {$/;"	f
+isObject	public/js/app.js	/^    function isObject(value) {$/;"	f
+isObjectLike	public/js/app.js	/^    function isObjectLike(value) {$/;"	f
+isPlainObject	public/js/app.js	/^    function isPlainObject(value) {$/;"	f
+isPrototype	public/js/app.js	/^    function isPrototype(value) {$/;"	f
+isRegExp	public/js/app.js	/^    var isRegExp = nodeIsRegExp ? baseUnary(nodeIsRegExp) : baseIsRegExp;$/;"	v
+isSafeInteger	public/js/app.js	/^    function isSafeInteger(value) {$/;"	f
+isSet	public/js/app.js	/^    var isSet = nodeIsSet ? baseUnary(nodeIsSet) : baseIsSet;$/;"	v
+isStrictComparable	public/js/app.js	/^    function isStrictComparable(value) {$/;"	f
+isString	public/js/app.js	/^    function isString(value) {$/;"	f
+isSymbol	public/js/app.js	/^    function isSymbol(value) {$/;"	f
+isTypedArray	public/js/app.js	/^    var isTypedArray = nodeIsTypedArray ? baseUnary(nodeIsTypedArray) : baseIsTypedArray;$/;"	v
+isUndefined	public/js/app.js	/^    function isUndefined(value) {$/;"	f
+isWeakMap	public/js/app.js	/^    function isWeakMap(value) {$/;"	f
+isWeakSet	public/js/app.js	/^    function isWeakSet(value) {$/;"	f
+iteratee	public/js/app.js	/^    function iteratee(func) {$/;"	f
+join	public/js/app.js	/^    function join(array, separator) {$/;"	f
+kernel	public/index.php	/^$kernel = $app->make(Illuminate\\Contracts\\Http\\Kernel::class);$/;"	v
+keyed	app/Report.php	/^         $keyed = $collection->mapWithKeys(function ($item){$/;"	v
+keys	app/Report.php	/^        $keys = array_keys($data);$/;"	v
+keys	public/js/app.js	/^    function keys(object) {$/;"	f
+keysFunc	public/js/app.js	/^      var keysFunc = isFull$/;"	v
+keysIn	public/js/app.js	/^    function keysIn(object) {$/;"	f
+last	public/js/app.js	/^    function last(array) {$/;"	f
+lastIndexOf	public/js/app.js	/^    function lastIndexOf(array, value, fromIndex) {$/;"	f
+lazyClone	public/js/app.js	/^    function lazyClone() {$/;"	f
+lazyReverse	public/js/app.js	/^    function lazyReverse() {$/;"	f
+lazyValue	public/js/app.js	/^    function lazyValue() {$/;"	f
+length	public/js/app.js	/^        var length = collection.length,$/;"	v
+listCacheClear	public/js/app.js	/^    function listCacheClear() {$/;"	c
+listCacheDelete	public/js/app.js	/^    function listCacheDelete(key) {$/;"	f
+listCacheGet	public/js/app.js	/^    function listCacheGet(key) {$/;"	f
+listCacheHas	public/js/app.js	/^    function listCacheHas(key) {$/;"	f
+listCacheSet	public/js/app.js	/^    function listCacheSet(key, value) {$/;"	f
+listen	app/Providers/EventServiceProvider.php	/^    protected $listen = [$/;"	v
+loader	bootstrap/autoload.php	/^| Composer provides a convenient, automatically generated class loader$/;"	c
+loader	public/index.php	/^| Composer provides a convenient, automatically generated class loader for$/;"	c
+lodash	public/js/app.js	/^    lodash.prototype = baseLodash.prototype;$/;"	c
+lodash.at	public/js/app.js	/^    lodash.prototype.at = wrapperAt;$/;"	m
+lodash.chain	public/js/app.js	/^    lodash.prototype.chain = wrapperChain;$/;"	m
+lodash.commit	public/js/app.js	/^    lodash.prototype.commit = wrapperCommit;$/;"	m
+lodash.constructor	public/js/app.js	/^    lodash.prototype.constructor = lodash;$/;"	m
+lodash.first	public/js/app.js	/^    lodash.prototype.first = lodash.prototype.head;$/;"	m
+lodash.next	public/js/app.js	/^    lodash.prototype.next = wrapperNext;$/;"	m
+lodash.plant	public/js/app.js	/^    lodash.prototype.plant = wrapperPlant;$/;"	m
+lodash.reverse	public/js/app.js	/^    lodash.prototype.reverse = wrapperReverse;$/;"	m
+lodash.templateSettings.escape	public/js/app.js	/^      'escape': reEscape,$/;"	p
+lodash.templateSettings.evaluate	public/js/app.js	/^      'evaluate': reEvaluate,$/;"	p
+lodash.templateSettings.imports	public/js/app.js	/^      'imports': {$/;"	p
+lodash.templateSettings.interpolate	public/js/app.js	/^      'interpolate': reInterpolate,$/;"	p
+lodash.templateSettings.variable	public/js/app.js	/^      'variable': '',$/;"	p
+lodash.toJSON	public/js/app.js	/^    lodash.prototype.toJSON = lodash.prototype.valueOf = lodash.prototype.value = wrapperValue;$/;"	m
+loop	storage/framework/views/e0d9b454bcb5ad9ca4dceb836fd1b7301ec292aa.php	/^                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>$/;"	v
+map	app/Providers/RouteServiceProvider.php	/^    public function map()$/;"	f
+map	public/js/app.js	/^    function map(collection, iteratee) {$/;"	f
+mapApiRoutes	app/Providers/RouteServiceProvider.php	/^    protected function mapApiRoutes()$/;"	f
+mapCacheClear	public/js/app.js	/^    function mapCacheClear() {$/;"	c
+mapCacheClear.__data__.hash	public/js/app.js	/^        'hash': new Hash,$/;"	p
+mapCacheDelete	public/js/app.js	/^    function mapCacheDelete(key) {$/;"	c
+mapCacheGet	public/js/app.js	/^    function mapCacheGet(key) {$/;"	f
+mapCacheHas	public/js/app.js	/^    function mapCacheHas(key) {$/;"	f
+mapCacheSet	public/js/app.js	/^    function mapCacheSet(key, value) {$/;"	c
+mapKeys	public/js/app.js	/^    function mapKeys(object, iteratee) {$/;"	f
+mapValues	public/js/app.js	/^    function mapValues(object, iteratee) {$/;"	f
+mapWebRoutes	app/Providers/RouteServiceProvider.php	/^    protected function mapWebRoutes()$/;"	f
+masterReport	app/Http/Controllers/AnalyticsController.php	/^    public function masterReport($year, $month)$/;"	f
+matches	public/js/app.js	/^    function matches(source) {$/;"	f
+matchesProperty	public/js/app.js	/^    function matchesProperty(path, srcValue) {$/;"	f
+matchesStrictComparable	public/js/app.js	/^    function matchesStrictComparable(key, srcValue) {$/;"	f
+max	public/js/app.js	/^    function max(array) {$/;"	f
+maxBy	public/js/app.js	/^    function maxBy(array, iteratee) {$/;"	f
+mean	public/js/app.js	/^    function mean(array) {$/;"	f
+meanBy	public/js/app.js	/^    function meanBy(array, iteratee) {$/;"	f
+memoize	public/js/app.js	/^    function memoize(func, resolver) {$/;"	f
+memoize.memoized	public/js/app.js	/^      var memoized = function() {$/;"	f
+memoizeCapped	public/js/app.js	/^    function memoizeCapped(func) {$/;"	f
+mergeData	public/js/app.js	/^    function mergeData(data, source) {$/;"	f
+middleware	app/Http/Kernel.php	/^    protected $middleware = [$/;"	v
+middlewareGroups	app/Http/Kernel.php	/^    protected $middlewareGroups = [$/;"	v
+min	public/js/app.js	/^    function min(array) {$/;"	f
+minBy	public/js/app.js	/^    function minBy(array, iteratee) {$/;"	f
+mixin	public/js/app.js	/^    function mixin(object, source, options) {$/;"	f
+mobilePercentage	app/Http/Controllers/AnalyticsController.php	/^            $mobilePercentage = $this->calculatePercentage($mobileSessions, $totalCurrentSessions);$/;"	v
+mobileSessions	app/Http/Controllers/AnalyticsController.php	/^        $mobileSessions   = isset($deviceCategories['mobile']) ? $deviceCategories['mobile'] : null;$/;"	v
+month	app/Http/Controllers/AnalyticsController.php	/^\/\/            $month = $month - 1;$/;"	v
+namespace	app/Providers/RouteServiceProvider.php	/^    protected $namespace = 'App\\Http\\Controllers';$/;"	v
+nativeKeysIn	public/js/app.js	/^    function nativeKeysIn(object) {$/;"	f
+negate	public/js/app.js	/^    function negate(predicate) {$/;"	f
+newData	app/Report.php	/^        $newData = collect(array_combine($newKeys, $values));$/;"	v
+newKeys	app/Report.php	/^        $newKeys = preg_replace('\/ga\\:\/', '', $keys);$/;"	v
+newName	app/Report.php	/^           $newName = implode(' > ', $readableName);$/;"	v
+newName	app/Report.php	/^        $newName = preg_replace('\/-\/', ' ', array_filter(explode('\/', $name)));$/;"	v
+noConflict	public/js/app.js	/^    function noConflict() {$/;"	f
+noop	public/js/app.js	/^    function noop() {$/;"	f
+nth	public/js/app.js	/^    function nth(array, n) {$/;"	f
+nthArg	public/js/app.js	/^    function nthArg(n) {$/;"	f
+objectToString	public/js/app.js	/^    function objectToString(value) {$/;"	f
+omitBy	public/js/app.js	/^    function omitBy(object, predicate) {$/;"	f
+once	public/js/app.js	/^    function once(func) {$/;"	f
+orderBy	public/js/app.js	/^    function orderBy(collection, iteratees, orders, guard) {$/;"	f
+organicSearchTraffic	app/Http/Controllers/AnalyticsController.php	/^        $organicSearchTraffic = $this->calculatePercentage($channels['organicsearch'], $totalCurrentSessions);$/;"	v
+otherParams	app/Report.php	/^        $otherParams = [$/;"	v
+overArgs	public/js/app.js	/^    var overArgs = castRest(function(func, transforms) {$/;"	v
+overRest	public/js/app.js	/^    function overRest(func, start, transform) {$/;"	f
+pad	public/js/app.js	/^    function pad(string, length, chars) {$/;"	f
+padEnd	public/js/app.js	/^    function padEnd(string, length, chars) {$/;"	f
+padStart	public/js/app.js	/^    function padStart(string, length, chars) {$/;"	f
+page_name_array	resources/views/reports/show.blade.php	/^                $page_name_array = [$/;"	v
+page_name_array	storage/framework/views/98336c851461c2334ce9697d87130e807b0f716f.php	/^                $page_name_array = [$/;"	v
+pagesData	app/Report.php	/^        $pagesData = $client->performQuery($period, $compareParams, $otherParams);$/;"	v
+paidSearch	app/Http/Controllers/AnalyticsController.php	/^        $paidSearch           = $this->calculatePercentage($paidSearchData, $totalCurrentSessions);$/;"	v
+paidSearchData	app/Http/Controllers/AnalyticsController.php	/^        $paidSearchData = $report->fetchPaidSearchData($client, $currentPeriod);$/;"	v
+parent	public/js/app.js	/^    function parent(object, path) {$/;"	f
+parseInt	public/js/app.js	/^    function parseInt(string, radix, guard) {$/;"	f
+password	database/factories/ModelFactory.php	/^        'password' => $password ?: $password = bcrypt('secret'),$/;"	v
+password	database/factories/ModelFactory.php	/^    static $password;$/;"	v
+percentChange	app/Http/Controllers/AnalyticsController.php	/^    protected function percentChange($newNumber, $oldNumber)$/;"	f
+percentChangeBounceRate	app/Http/Controllers/AnalyticsController.php	/^        $percentChangeBounceRate          = $this->percentChange($totalCurrentBounceRate, $totalPreviousBounceRate);$/;"	v
+percentChangePageViews	app/Http/Controllers/AnalyticsController.php	/^        $percentChangePageViews           = $this->percentChange($totalCurrentPageViews, $totalPreviousPageViews);$/;"	v
+percentChangePageViews	app/Http/Controllers/AnalyticsController.php	/^        $percentChangePageViews = round($this->percentChange($currentPageViews, $previousPageViews), 2);$/;"	v
+percentChangePageViewsPerSession	app/Http/Controllers/AnalyticsController.php	/^        $percentChangePageViewsPerSession = $this->percentChange($totalCurrentPageViewsPerSession, $totalPreviousPageViewsPerSession);$/;"	v
+percentChangePagesPerSession	app/Http/Controllers/AnalyticsController.php	/^        $percentChangePagesPerSession = round($this->percentChange($currentPagesPerSession, $previousPagesPerSession), 2);$/;"	v
+percentChangeSessionDuration	app/Http/Controllers/AnalyticsController.php	/^        $percentChangeSessionDuration     = $this->percentChange($totalCurrentSessionDuration, $totalPreviousSessionDuration);$/;"	v
+percentChangeSessionDuration	app/Http/Controllers/AnalyticsController.php	/^        $percentChangeSessionDuration = round($this->percentChange($currentSessionDuration, $previousSessionDuration), 2);$/;"	v
+percentChangeSessions	app/Http/Controllers/AnalyticsController.php	/^        $percentChangeSessions            = $this->percentChange($totalCurrentSessions, $totalPreviousSessions);$/;"	v
+percentChangeSessions	app/Http/Controllers/AnalyticsController.php	/^        $percentChangeSessions = round($this->percentChange($currentSessions, $previousSessions), 2);$/;"	v
+percentChangeUsers	app/Http/Controllers/AnalyticsController.php	/^        $percentChangeUsers               = $this->percentChange($totalCurrentUsers, $totalPreviousUsers);$/;"	v
+percentChangeUsers	app/Http/Controllers/AnalyticsController.php	/^        $percentChangeUsers = round($this->percentChange($currentUsers, $previousUsers), 2);$/;"	v
+percentNewSessions	app/Http/Controllers/AnalyticsController.php	/^        $percentNewSessions       = round($current['percentNewSessions'], 2);$/;"	v
+percentReturningSessions	app/Http/Controllers/AnalyticsController.php	/^        $percentReturningSessions = 100 - $percentNewSessions;$/;"	v
+pickBy	public/js/app.js	/^    function pickBy(object, predicate) {$/;"	f
+policies	app/Providers/AuthServiceProvider.php	/^    protected $policies = [$/;"	v
+predicate	public/js/app.js	/^          predicate = function(key) { return iteratee(iterable[key], key, iterable); };$/;"	f
+previous	app/Http/Controllers/AnalyticsController.php	/^        $previous = $report->fetchAnalyticsData($client, $previousPeriod);$/;"	v
+previousAnalyticsData	app/Http/Controllers/AnalyticsController.php	/^            $previousAnalyticsData            = $this->compareWithLastMonth($client, $report, $year, $previousMonth);$/;"	v
+previousAnalyticsData	app/Http/Controllers/AnalyticsController.php	/^        $previousAnalyticsData = $client->performQuery($previousPeriod,$/;"	v
+previousAverageDailySessions	app/Http/Controllers/AnalyticsController.php	/^        $previousAverageDailySessions = ($totalPreviousSessions \/ $daysInMonth);$/;"	v
+previousDates	app/Http/Controllers/AnalyticsController.php	/^        $previousDates         = $report->determineDates($year, $month);$/;"	v
+previousDates	app/Http/Controllers/AnalyticsController.php	/^        $previousDates = $report->determineDates($year - 1, $month); \/\/this is ugly$/;"	v
+previousMonth	app/Http/Controllers/AnalyticsController.php	/^            $previousMonth                    = $month - 1;$/;"	v
+previousNumberOfDays	app/Http/Controllers/AnalyticsController.php	/^        $previousNumberOfDays  = $report->calculateDaysInMonth($year, $month);$/;"	v
+previousPageViews	app/Http/Controllers/AnalyticsController.php	/^        $previousPageViews = $this->sumData($year, $month, 'previous_page_views');$/;"	v
+previousPagesPerSession	app/Http/Controllers/AnalyticsController.php	/^        $previousPagesPerSession = $this->avgData($year, $month, 'previous_pages_per_session');$/;"	v
+previousPeriod	app/Http/Controllers/AnalyticsController.php	/^        $previousPeriod        = Period::create($previousDates['start'], $previousDates['end']);$/;"	v
+previousPeriod	app/Http/Controllers/AnalyticsController.php	/^        $previousPeriod = Period::create($previousDates['start'], $previousDates['end']);$/;"	v
+previousSessionDuration	app/Http/Controllers/AnalyticsController.php	/^        $previousSessionDuration = $this->avgData($year, $month, 'previous_average_session_duration');$/;"	v
+previousSessions	app/Http/Controllers/AnalyticsController.php	/^        $previousSessions = $this->sumData($year, $month, 'previous_average_daily_sessions');$/;"	v
+previousUsers	app/Http/Controllers/AnalyticsController.php	/^        $previousUsers = $this->sumData($year, $month, 'previous_users');$/;"	v
+property	public/js/app.js	/^    function property(path) {$/;"	f
+propertyOf	public/js/app.js	/^    function propertyOf(object) {$/;"	f
+props	public/js/app.js	/^      var props = arrayMap(getAllKeysIn(object), function(prop) {$/;"	v
+props	public/js/app.js	/^      var props = isArr ? undefined : keysFunc(value);$/;"	v
+pullAll	public/js/app.js	/^    function pullAll(array, values) {$/;"	f
+pullAllBy	public/js/app.js	/^    function pullAllBy(array, values, iteratee) {$/;"	f
+pullAllWith	public/js/app.js	/^    function pullAllWith(array, values, comparator) {$/;"	f
+random	public/js/app.js	/^    function random(lower, upper, floating) {$/;"	f
+reTrim	public/js/app.js	/^  var reTrim = \/^\\s+|\\s+$\/g,$/;"	v
+readableName	app/Report.php	/^        $readableName = preg_replace('\/\\?id=\/', '', $readableName);$/;"	v
+readableName	app/Report.php	/^        $readableName = preg_replace('\/\\?pg=\/', 'Page ', $newName);$/;"	v
+readable_name_array	resources/views/reports/show.blade.php	/^                $readable_name_array = [];$/;"	v
+readable_name_array	storage/framework/views/98336c851461c2334ce9697d87130e807b0f716f.php	/^                $readable_name_array = [];$/;"	v
+redirectTo	app/Http/Controllers/Auth/LoginController.php	/^    protected $redirectTo = '\/home';$/;"	v
+redirectTo	app/Http/Controllers/Auth/RegisterController.php	/^    protected $redirectTo = '\/home';$/;"	v
+redirectTo	app/Http/Controllers/Auth/ResetPasswordController.php	/^    protected $redirectTo = '\/home';$/;"	v
+reduce	public/js/app.js	/^    function reduce(collection, iteratee, accumulator) {$/;"	f
+reduceRight	public/js/app.js	/^    function reduceRight(collection, iteratee, accumulator) {$/;"	f
+referralTraffic	app/Http/Controllers/AnalyticsController.php	/^        $referralTraffic      = isset($channels['referral']) ? $this->calculatePercentage($channels['referral'], $totalCurrentSessions) : '0';$/;"	v
+register	app/Providers/AppServiceProvider.php	/^    public function register()$/;"	f
+reject	public/js/app.js	/^    function reject(collection, predicate) {$/;"	f
+remove	public/js/app.js	/^    function remove(array, predicate) {$/;"	f
+render	app/Exceptions/Handler.php	/^    public function render($request, Exception $exception)$/;"	f
+reorder	public/js/app.js	/^    function reorder(array, indexes) {$/;"	f
+repeat	public/js/app.js	/^    function repeat(string, n, guard) {$/;"	f
+replace	public/js/app.js	/^    function replace() {$/;"	f
+report	app/Exceptions/Handler.php	/^    public function report(Exception $exception)$/;"	f
+report	app/Http/Controllers/AnalyticsController.php	/^        $report                = new Report();$/;"	v
+reports	app/Company.php	/^    public function reports()$/;"	f
+request	public/index.php	/^    $request = Illuminate\\Http\\Request::capture()$/;"	v
+response	public/index.php	/^$response = $kernel->handle($/;"	v
+response	tests/Feature/ExampleTest.php	/^        $response = $this->get('\/');$/;"	v
+rest	public/js/app.js	/^    function rest(func, start) {$/;"	f
+result	public/js/app.js	/^    function result(object, path, defaultValue) {$/;"	f
+return	public/js/app.js	/^\/******\/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };$/;"	c
+return.hasOwnProperty	public/js/app.js	/^\/******\/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };$/;"	m
+reverse	public/js/app.js	/^    function reverse(array) {$/;"	f
+routeMiddleware	app/Http/Kernel.php	/^    protected $routeMiddleware = [$/;"	v
+run	database/seeds/DatabaseSeeder.php	/^    public function run()$/;"	f
+runReport	app/Http/Controllers/AnalyticsController.php	/^    public function runReport(Company $company, $year, $month)$/;"	f
+sample	public/js/app.js	/^    function sample(collection) {$/;"	f
+sampleSize	public/js/app.js	/^    function sampleSize(collection, n, guard) {$/;"	f
+schedule	app/Console/Kernel.php	/^    protected function schedule(Schedule $schedule)$/;"	f
+set	public/js/app.js	/^    function set(object, path, value) {$/;"	f
+setCacheAdd	public/js/app.js	/^    function setCacheAdd(value) {$/;"	c
+setCacheHas	public/js/app.js	/^    function setCacheHas(value) {$/;"	f
+setData	public/js/app.js	/^    var setData = shortOut(baseSetData);$/;"	v
+setToString	public/js/app.js	/^    var setToString = shortOut(baseSetToString);$/;"	v
+setWith	public/js/app.js	/^    function setWith(object, path, value, customizer) {$/;"	f
+setWrapToString	public/js/app.js	/^    function setWrapToString(wrapper, reference, bitmask) {$/;"	f
+shortOut	public/js/app.js	/^    function shortOut(func) {$/;"	f
+show	app/Http/Controllers/CompaniesController.php	/^    public function show(Company $company)$/;"	f
+show	app/Http/Controllers/ReportController.php	/^    public function show(Report $report)$/;"	f
+shuffle	public/js/app.js	/^    function shuffle(collection) {$/;"	f
+shuffleSelf	public/js/app.js	/^    function shuffleSelf(array, size) {$/;"	f
+size	public/js/app.js	/^    function size(collection) {$/;"	f
+slice	public/js/app.js	/^    function slice(array, start, end) {$/;"	f
+socialTraffic	app/Http/Controllers/AnalyticsController.php	/^        $socialTraffic        = isset($channels['social']) ? $this->calculatePercentage($channels['social'], $totalCurrentSessions) : 0;$/;"	v
+some	public/js/app.js	/^    function some(collection, predicate, guard) {$/;"	f
+sortedIndex	public/js/app.js	/^    function sortedIndex(array, value) {$/;"	f
+sortedIndexBy	public/js/app.js	/^    function sortedIndexBy(array, value, iteratee) {$/;"	f
+sortedIndexOf	public/js/app.js	/^    function sortedIndexOf(array, value) {$/;"	f
+sortedLastIndex	public/js/app.js	/^    function sortedLastIndex(array, value) {$/;"	f
+sortedLastIndexBy	public/js/app.js	/^    function sortedLastIndexBy(array, value, iteratee) {$/;"	f
+sortedLastIndexOf	public/js/app.js	/^    function sortedLastIndexOf(array, value) {$/;"	f
+sortedUniq	public/js/app.js	/^    function sortedUniq(array) {$/;"	f
+sortedUniqBy	public/js/app.js	/^    function sortedUniqBy(array, iteratee) {$/;"	f
+split	public/js/app.js	/^    function split(string, separator, limit) {$/;"	f
+spread	public/js/app.js	/^    function spread(func, start) {$/;"	f
+stackClear	public/js/app.js	/^    function stackClear() {$/;"	c
+stackDelete	public/js/app.js	/^    function stackDelete(key) {$/;"	c
+stackGet	public/js/app.js	/^    function stackGet(key) {$/;"	f
+stackHas	public/js/app.js	/^    function stackHas(key) {$/;"	f
+stackSet	public/js/app.js	/^    function stackSet(key, value) {$/;"	c
+stacked	public/js/app.js	/^          var stacked = stack.get(object);$/;"	v
+stacked	public/js/app.js	/^      var stacked = stack.get(value);$/;"	v
+startsWith	public/js/app.js	/^    function startsWith(string, target, position) {$/;"	f
+store	app/Http/Controllers/CompaniesController.php	/^    public function store(Request $request)$/;"	f
+store	app/Http/Controllers/ReportController.php	/^    public function store(Request $request)$/;"	f
+stubArray	public/js/app.js	/^    function stubArray() {$/;"	f
+stubFalse	public/js/app.js	/^    function stubFalse() {$/;"	f
+stubObject	public/js/app.js	/^    function stubObject() {$/;"	f
+stubString	public/js/app.js	/^    function stubString() {$/;"	f
+stubTrue	public/js/app.js	/^    function stubTrue() {$/;"	f
+sum	app/Http/Controllers/AnalyticsController.php	/^        $sum = DB::table('reports')->where([$/;"	v
+sum	public/js/app.js	/^    function sum(array) {$/;"	f
+sumBy	public/js/app.js	/^    function sumBy(array, iteratee) {$/;"	f
+sumData	app/Http/Controllers/AnalyticsController.php	/^    protected function sumData($year, $month, $column)$/;"	f
+tabletPercentage	app/Http/Controllers/AnalyticsController.php	/^            $tabletPercentage = $this->calculatePercentage($tabletSessions, $totalCurrentSessions);$/;"	v
+tabletSessions	app/Http/Controllers/AnalyticsController.php	/^        $tabletSessions   = isset($deviceCategories['tablet']) ? $deviceCategories['tablet'] : null;$/;"	v
+tail	public/js/app.js	/^    function tail(array) {$/;"	f
+take	public/js/app.js	/^    function take(array, n, guard) {$/;"	f
+takeRight	public/js/app.js	/^    function takeRight(array, n, guard) {$/;"	f
+takeRightWhile	public/js/app.js	/^    function takeRightWhile(array, predicate) {$/;"	f
+takeWhile	public/js/app.js	/^    function takeWhile(array, predicate) {$/;"	f
+tap	public/js/app.js	/^    function tap(value, interceptor) {$/;"	f
+template	public/js/app.js	/^    function template(string, options, guard) {$/;"	f
+testBasicTest	tests/Feature/ExampleTest.php	/^    public function testBasicTest()$/;"	f
+testBasicTest	tests/Unit/ExampleTest.php	/^    public function testBasicTest()$/;"	f
+throttle	public/js/app.js	/^    function throttle(func, wait, options) {$/;"	f
+thru	public/js/app.js	/^    function thru(value, interceptor) {$/;"	f
+times	public/js/app.js	/^    function times(n, iteratee) {$/;"	f
+toArray	public/js/app.js	/^    function toArray(value) {$/;"	f
+toFinite	public/js/app.js	/^    function toFinite(value) {$/;"	f
+toInteger	public/js/app.js	/^    function toInteger(value) {$/;"	f
+toKey	public/js/app.js	/^    function toKey(value) {$/;"	f
+toLength	public/js/app.js	/^    function toLength(value) {$/;"	f
+toLower	public/js/app.js	/^    function toLower(value) {$/;"	f
+toNumber	public/js/app.js	/^    function toNumber(value) {$/;"	f
+toPath	public/js/app.js	/^    function toPath(value) {$/;"	f
+toPlainObject	public/js/app.js	/^    function toPlainObject(value) {$/;"	f
+toSafeInteger	public/js/app.js	/^    function toSafeInteger(value) {$/;"	f
+toSource	public/js/app.js	/^    function toSource(func) {$/;"	f
+toString	public/js/app.js	/^    function toString(value) {$/;"	f
+toUpper	public/js/app.js	/^    function toUpper(value) {$/;"	f
+topPages	app/Report.php	/^        $topPages = $pagesData['rows'];$/;"	v
+topPagesData	app/Http/Controllers/AnalyticsController.php	/^        $topPagesData  = $report->fetchTopPages($client, $currentPeriod);$/;"	v
+totalCurrentBounceRate	app/Http/Controllers/AnalyticsController.php	/^        $totalCurrentBounceRate  = $current['bounceRate'];$/;"	v
+totalCurrentPageViews	app/Http/Controllers/AnalyticsController.php	/^        $totalCurrentPageViews  = $current['pageViews'];$/;"	v
+totalCurrentPageViewsPerSession	app/Http/Controllers/AnalyticsController.php	/^        $totalCurrentPageViewsPerSession  = $current['pageViewsPerSession'];$/;"	v
+totalCurrentSessionDuration	app/Http/Controllers/AnalyticsController.php	/^        $totalCurrentSessionDuration  = $current['avgSessionDuration'];$/;"	v
+totalCurrentSessions	app/Http/Controllers/AnalyticsController.php	/^        $totalCurrentSessions  = $current['sessions'];$/;"	v
+totalCurrentUsers	app/Http/Controllers/AnalyticsController.php	/^        $totalCurrentUsers  = $current['users'];$/;"	v
+totalHits	app/Report.php	/^        $totalHits = $pagesData->totalsForAllResults['ga:pageviews'];$/;"	v
+totalPreviousBounceRate	app/Http/Controllers/AnalyticsController.php	/^            $totalPreviousBounceRate          = $previousAnalyticsData['rows'][0][5];$/;"	v
+totalPreviousBounceRate	app/Http/Controllers/AnalyticsController.php	/^        $totalPreviousBounceRate = $previous['bounceRate'];$/;"	v
+totalPreviousPageViews	app/Http/Controllers/AnalyticsController.php	/^            $totalPreviousPageViews           = $previousAnalyticsData['rows'][0][2];$/;"	v
+totalPreviousPageViews	app/Http/Controllers/AnalyticsController.php	/^        $totalPreviousPageViews = $previous['pageViews'];$/;"	v
+totalPreviousPageViewsPerSession	app/Http/Controllers/AnalyticsController.php	/^            $totalPreviousPageViewsPerSession = $previousAnalyticsData['rows'][0][3];$/;"	v
+totalPreviousPageViewsPerSession	app/Http/Controllers/AnalyticsController.php	/^        $totalPreviousPageViewsPerSession = $previous['pageViewsPerSession'];$/;"	v
+totalPreviousSessionDuration	app/Http/Controllers/AnalyticsController.php	/^            $totalPreviousSessionDuration     = $previousAnalyticsData['rows'][0][4];$/;"	v
+totalPreviousSessionDuration	app/Http/Controllers/AnalyticsController.php	/^        $totalPreviousSessionDuration = $previous['avgSessionDuration'];$/;"	v
+totalPreviousSessions	app/Http/Controllers/AnalyticsController.php	/^            $totalPreviousSessions            = $previousAnalyticsData['rows'][0][0];$/;"	v
+totalPreviousSessions	app/Http/Controllers/AnalyticsController.php	/^        $totalPreviousSessions = $previous['sessions'];$/;"	v
+totalPreviousUsers	app/Http/Controllers/AnalyticsController.php	/^            $totalPreviousUsers               = $previousAnalyticsData['rows'][0][1];$/;"	v
+totalPreviousUsers	app/Http/Controllers/AnalyticsController.php	/^        $totalPreviousUsers = $previous['users'];$/;"	v
+totalSessions	app/Http/Controllers/AnalyticsController.php	/^        $totalSessions = $topPagesData[1];$/;"	v
+transform	public/js/app.js	/^    function transform(object, iteratee, accumulator) {$/;"	f
+trim	public/js/app.js	/^    function trim(string, chars, guard) {$/;"	f
+trimEnd	public/js/app.js	/^    function trimEnd(string, chars, guard) {$/;"	f
+trimKeys	app/Report.php	/^    private function trimKeys($data)$/;"	f
+trimStart	public/js/app.js	/^    function trimStart(string, chars, guard) {$/;"	f
+truncate	public/js/app.js	/^    function truncate(string, options) {$/;"	f
+unary	public/js/app.js	/^    function unary(func) {$/;"	f
+unauthenticated	app/Exceptions/Handler.php	/^    protected function unauthenticated($request, AuthenticationException $exception)$/;"	f
+unescape	public/js/app.js	/^    function unescape(string) {$/;"	f
+uniq	public/js/app.js	/^    function uniq(array) {$/;"	f
+uniqBy	public/js/app.js	/^    function uniqBy(array, iteratee) {$/;"	f
+uniqWith	public/js/app.js	/^    function uniqWith(array, comparator) {$/;"	f
+uniqueId	public/js/app.js	/^    function uniqueId(prefix) {$/;"	f
+unset	public/js/app.js	/^    function unset(object, path) {$/;"	f
+unzip	public/js/app.js	/^    function unzip(array) {$/;"	f
+unzipWith	public/js/app.js	/^    function unzipWith(array, iteratee) {$/;"	f
+up	database/migrations/2014_10_12_000000_create_users_table.php	/^    public function up()$/;"	f
+up	database/migrations/2014_10_12_100000_create_password_resets_table.php	/^    public function up()$/;"	f
+up	database/migrations/2017_04_14_142708_create_companies_table.php	/^    public function up()$/;"	f
+up	database/migrations/2017_04_15_051838_create_reports_table.php	/^    public function up()$/;"	f
+update	app/Http/Controllers/CompaniesController.php	/^    public function update(Request $request, Company $company)$/;"	f
+update	app/Http/Controllers/ReportController.php	/^    public function update(Request $request, Report $report)$/;"	f
+update	public/js/app.js	/^    function update(object, path, updater) {$/;"	f
+updateWith	public/js/app.js	/^    function updateWith(object, path, updater, customizer) {$/;"	f
+updateWrapDetails	public/js/app.js	/^    function updateWrapDetails(details, bitmask) {$/;"	f
+uri	server.php	/^$uri = urldecode($/;"	v
+validator	app/Http/Controllers/Auth/RegisterController.php	/^    protected function validator(array $data)$/;"	f
+values	app/Report.php	/^        $values = array_values($data);$/;"	v
+values	public/js/app.js	/^    function values(object) {$/;"	f
+valuesIn	public/js/app.js	/^    function valuesIn(object) {$/;"	f
+viewId	app/Company.php	/^    protected $viewId;$/;"	v
+words	public/js/app.js	/^    function words(string, pattern, guard) {$/;"	f
+wrap	public/js/app.js	/^    function wrap(value, wrapper) {$/;"	f
+wrapperChain	public/js/app.js	/^    function wrapperChain() {$/;"	f
+wrapperClone	public/js/app.js	/^    function wrapperClone(wrapper) {$/;"	f
+wrapperCommit	public/js/app.js	/^    function wrapperCommit() {$/;"	f
+wrapperNext	public/js/app.js	/^    function wrapperNext() {$/;"	f
+wrapperPlant	public/js/app.js	/^    function wrapperPlant(value) {$/;"	f
+wrapperReverse	public/js/app.js	/^    function wrapperReverse() {$/;"	f
+wrapperToIterator	public/js/app.js	/^    function wrapperToIterator() {$/;"	f
+wrapperValue	public/js/app.js	/^    function wrapperValue() {$/;"	f
+year	app/Http/Controllers/AnalyticsController.php	/^\/\/            $year = Carbon::now()->year;$/;"	v
+zipObject	public/js/app.js	/^    function zipObject(props, values) {$/;"	f
+zipObjectDeep	public/js/app.js	/^    function zipObjectDeep(props, values) {$/;"	f
