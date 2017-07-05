@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Analytics;
+use App\Report;
 use App\Company;
 use App\SEMReport;
 use Illuminate\Http\Request;
+use Spatie\Analytics\Period;
 
 class SEMReportController extends Controller
 {
@@ -47,7 +50,7 @@ class SEMReportController extends Controller
      * @param  \App\SEMReport  $sEMReport
      * @return \Illuminate\Http\Response
      */
-    public function show(SEMReport $sEMReport)
+    public function show(SEMReport $SEMReport)
     {
         //
     }
@@ -58,7 +61,7 @@ class SEMReportController extends Controller
      * @param  \App\SEMReport  $sEMReport
      * @return \Illuminate\Http\Response
      */
-    public function edit(SEMReport $sEMReport)
+    public function edit(SEMReport $SEMReport)
     {
         //
     }
@@ -70,7 +73,7 @@ class SEMReportController extends Controller
      * @param  \App\SEMReport  $sEMReport
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SEMReport $sEMReport)
+    public function update(Request $request, SEMReport $SEMReport)
     {
         //
     }
@@ -81,8 +84,42 @@ class SEMReportController extends Controller
      * @param  \App\SEMReport  $sEMReport
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SEMReport $sEMReport)
+    public function destroy(SEMReport $SEMReport)
     {
         //
+    }
+
+    public function checkDatabase(Company $company, $year, $month)
+    {
+       $semReport = SEMReport::where([
+           ['company_id', '=', $company->id],
+           ['year', '=', $year],
+           ['month', '=', $month]
+       ])->first();
+
+      if( ! $semReport){
+          return $this->runReport($company, $year, $month);
+      }
+
+      return view('reports.show', compact('semReport', 'company'));
+    }
+
+    private function runReport(Company $company, $year, $month)
+    {
+        $client                = Analytics::setViewId($company->viewId);
+        $report                = new Report();
+        $semreport             = new SEMReport();
+        //determine our dates
+        $currentDates  = $report->determineDates($year, $month);
+        //How many days in the query?
+        $daysInMonth = $report->calculateDaysInMonth($year, $month);
+
+        //create date range for query
+        $currentPeriod  = Period::create($currentDates['start'], $currentDates['end']);
+
+        $current  = $semreport->testMethod($client, $currentPeriod);
+
+        dd($current);
+
     }
 }

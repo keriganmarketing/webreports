@@ -18,7 +18,7 @@
                         </select>
                         <select id="month">
                             @for($i = 1; $i < 26; $i++)
-                                <option value="/report/{{ Carbon\Carbon::now()->subMonths($i)->year }}/{{ Carbon\Carbon::now()->subMonths($i)->month}}">
+                                <option value="/semreport/{{ Carbon\Carbon::now()->subMonths($i)->year }}/{{ Carbon\Carbon::now()->subMonths($i)->month}}">
                                     {{ Carbon\Carbon::now()->subMonths($i)->format('F, Y') }}
                                 </option>
                             @endfor

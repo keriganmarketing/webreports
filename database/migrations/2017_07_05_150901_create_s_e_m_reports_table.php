@@ -13,8 +13,12 @@ class CreateSEMReportsTable extends Migration
      */
     public function up()
     {
-        Schema::create('s_e_m_reports', function (Blueprint $table) {
+        Schema::create('semreports', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('company_id');
+            $table->integer('year');
+            $table->integer('month');
+            $table->integer('clicks');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateSEMReportsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('s_e_m_reports');
+        Schema::dropIfExists('semreports');
     }
 }
