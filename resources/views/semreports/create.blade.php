@@ -4,9 +4,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
+            <h3>SEM Report</h3>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Run Report</h3>
+                    <h3 class="panel-title">Select Company and Month</h3>
                 </div>
                 <div class="panel-body">
                     <form action="#" method="post" id="reportForm">

@@ -7,36 +7,35 @@ use Analytics;
 use App\Report;
 use App\Company;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Spatie\Analytics\Period;
 
 class AnalyticsController extends Controller
 {
-
     public function checkDatabase(Company $company, $year, $month)
     {
-       $finalReport = Report::where([
+        $finalReport = Report::where([
            ['company_id', '=', $company->id],
            ['year', '=', $year],
            ['month', '=', $month]
-       ])->first();
+        ])->first();
 
-      if( ! $finalReport){
-          return $this->runReport($company, $year, $month);
-      }
+        if (! $finalReport) {
+            return $this->runReport($company, $year, $month);
+        }
 
-      return view('reports.show', compact('finalReport', 'company'));
+        return view('reports.show', compact('finalReport', 'company'));
     }
 
     public function runReport(Company $company, $year, $month)
     {
-
         $client                = Analytics::setViewId($company->viewId);
         $report                = new Report();
         $comparedWithLastMonth = false;
+
         //determine our dates
         $currentDates  = $report->determineDates($year, $month);
         $previousDates = $report->determineDates($year - 1, $month); //this is ugly
+
         //How many days in the query?
         $daysInMonth = $report->calculateDaysInMonth($year, $month);
 
@@ -44,35 +43,28 @@ class AnalyticsController extends Controller
         $currentPeriod  = Period::create($currentDates['start'], $currentDates['end']);
         $previousPeriod = Period::create($previousDates['start'], $previousDates['end']);
 
-        $current  = $report->fetchAnalyticsData($client, $currentPeriod);
-        $previous = $report->fetchAnalyticsData($client, $previousPeriod);
-
+        $current               = $report->fetchAnalyticsData($client, $currentPeriod);
+        $previous              = $report->fetchAnalyticsData($client, $previousPeriod);
         $totalCurrentSessions  = $current['sessions'];
         $totalPreviousSessions = $previous['sessions'];
 
-//        if($totalCurrentSessions < 10){
-//            $year = Carbon::now()->year;
-//            $month = $month - 1;
-//            $this->runReport($company, $year, $month);
-//        }
-
-        $deviceCategories = $report->fetchDeviceCategories($client, $currentPeriod);
-        $desktopSessions  = isset($deviceCategories['desktop']) ? $deviceCategories['desktop'] : null;
-        $mobileSessions   = isset($deviceCategories['mobile']) ? $deviceCategories['mobile'] : null;
-        $tabletSessions   = isset($deviceCategories['tablet']) ? $deviceCategories['tablet'] : null;
+        $deviceCategories  = $report->fetchDeviceCategories($client, $currentPeriod);
+        $desktopSessions   = isset($deviceCategories['desktop']) ? $deviceCategories['desktop'] : null;
+        $mobileSessions    = isset($deviceCategories['mobile']) ? $deviceCategories['mobile'] : null;
+        $tabletSessions    = isset($deviceCategories['tablet']) ? $deviceCategories['tablet'] : null;
         $desktopPercentage = 0.0;
-        $mobilePercentage = 0.0;
-        $tabletPercentage = 0.0;
+        $mobilePercentage  = 0.0;
+        $tabletPercentage  = 0.0;
 
 
         if ($desktopSessions) {
             $desktopPercentage = $this->calculatePercentage($desktopSessions, $totalCurrentSessions);
         }
         if ($mobileSessions) {
-            $mobilePercentage = $this->calculatePercentage($mobileSessions, $totalCurrentSessions);
+            $mobilePercentage  = $this->calculatePercentage($mobileSessions, $totalCurrentSessions);
         }
         if ($tabletSessions) {
-            $tabletPercentage = $this->calculatePercentage($tabletSessions, $totalCurrentSessions);
+            $tabletPercentage  = $this->calculatePercentage($tabletSessions, $totalCurrentSessions);
         }
 
         $paidSearchData = $report->fetchPaidSearchData($client, $currentPeriod);
@@ -90,31 +82,29 @@ class AnalyticsController extends Controller
             $emailSearchTraffic = 0;
         }
 
-        $topPagesData  = $report->fetchTopPages($client, $currentPeriod);
-        $totalSessions = $topPagesData[1];
+        $topPagesData                     = $report->fetchTopPages($client, $currentPeriod);
+        $totalSessions                    = $topPagesData[1];
 
+        $percentNewSessions               = round($current['percentNewSessions'], 2);
+        $percentReturningSessions         = 100 - $percentNewSessions;
 
-        $percentNewSessions       = round($current['percentNewSessions'], 2);
-        $percentReturningSessions = 100 - $percentNewSessions;
+        $totalCurrentUsers                = $current['users'];
+        $totalPreviousUsers               = $previous['users'];
 
-
-        $totalCurrentUsers  = $current['users'];
-        $totalPreviousUsers = $previous['users'];
-
-        $totalCurrentPageViews  = $current['pageViews'];
-        $totalPreviousPageViews = $previous['pageViews'];
+        $totalCurrentPageViews            = $current['pageViews'];
+        $totalPreviousPageViews           = $previous['pageViews'];
 
         $totalCurrentPageViewsPerSession  = $current['pageViewsPerSession'];
         $totalPreviousPageViewsPerSession = $previous['pageViewsPerSession'];
 
-        $totalCurrentSessionDuration  = $current['avgSessionDuration'];
-        $totalPreviousSessionDuration = $previous['avgSessionDuration'];
+        $totalCurrentSessionDuration      = $current['avgSessionDuration'];
+        $totalPreviousSessionDuration     = $previous['avgSessionDuration'];
 
-        $totalCurrentBounceRate  = $current['bounceRate'];
-        $totalPreviousBounceRate = $previous['bounceRate'];
+        $totalCurrentBounceRate           = $current['bounceRate'];
+        $totalPreviousBounceRate          = $previous['bounceRate'];
 
         //get average daily session for current month
-        $currentAverageDailySessions = ($totalCurrentSessions / $daysInMonth);
+        $currentAverageDailySessions      = ($totalCurrentSessions / $daysInMonth);
 
         if ($totalPreviousSessions < 10) {
             $previousMonth                    = $month - 1;
@@ -141,16 +131,23 @@ class AnalyticsController extends Controller
         $percentChangeBounceRate          = $this->percentChange($totalCurrentBounceRate, $totalPreviousBounceRate);
 
         $company     = Company::find($company->id);
-        for($i = 0; $i < 10; $i ++){
-            if(! isset($topPagesData[0][$i])){
+
+        // TODO: fix this garbage
+        /************************************************************/
+
+        for ($i = 0; $i < 10; $i ++) {
+            if (! isset($topPagesData[0][$i])) {
                 $topPagesData[0][$i] = '/No-Data';
-                for($k = 0; $k < 10; $k++) {
+                for ($k = 0; $k < 10; $k++) {
                     if (!isset($topPagesData[0][ $i ][ $k ])) {
                         $topPagesData[0][ $i ][ $k ] = '/No-Data';
                     }
                 }
             }
         }
+
+        /*************************************************************/
+
         $finalReport = Report::create([
             'company_id'                              => $company->id,
             'year'                                    => $year,
@@ -213,10 +210,10 @@ class AnalyticsController extends Controller
 
     protected function percentChange($newNumber, $oldNumber)
     {
-        if(! is_numeric($newNumber) || ! is_numeric($oldNumber)){
+        if (! is_numeric($newNumber) || ! is_numeric($oldNumber)) {
             return 'No Data';
         }
-        if($oldNumber > 0){
+        if ($oldNumber > 0) {
             return ((($newNumber - $oldNumber) / $oldNumber) * 100);
         }
 
@@ -228,8 +225,10 @@ class AnalyticsController extends Controller
         $previousDates         = $report->determineDates($year, $month);
         $previousPeriod        = Period::create($previousDates['start'], $previousDates['end']);
         $previousNumberOfDays  = $report->calculateDaysInMonth($year, $month);
-        $previousAnalyticsData = $client->performQuery($previousPeriod,
-            'ga:sessions, ga:users, ga:pageViews, ga:pageViewsPerSession, ga:avgSessionDuration, ga:bounceRate');
+        $previousAnalyticsData = $client->performQuery(
+            $previousPeriod,
+            'ga:sessions, ga:users, ga:pageViews, ga:pageViewsPerSession, ga:avgSessionDuration, ga:bounceRate'
+        );
 
         return $previousAnalyticsData;
     }
@@ -241,7 +240,7 @@ class AnalyticsController extends Controller
      */
     protected function calculatePercentage($part, $whole)
     {
-        if(! is_numeric($part) || ! is_numeric($whole)){
+        if (! is_numeric($part) || ! is_numeric($whole)) {
             return 0;
         }
         return round(($part / $whole) * 100, 2);
@@ -249,24 +248,23 @@ class AnalyticsController extends Controller
 
     public function masterReport($year, $month)
     {
-        $currentSessions = $this->sumData($year, $month, 'current_average_daily_sessions');
-        $previousSessions = $this->sumData($year, $month, 'previous_average_daily_sessions');
-        $percentChangeSessions = round($this->percentChange($currentSessions, $previousSessions), 2);
-        $currentUsers = $this->sumData($year, $month, 'current_users');
-        $previousUsers = $this->sumData($year, $month, 'previous_users');
-        $percentChangeUsers = round($this->percentChange($currentUsers, $previousUsers), 2);
-        $currentPageViews = $this->sumData($year, $month, 'current_page_views');
-        $previousPageViews = $this->sumData($year, $month, 'previous_page_views');
-        $percentChangePageViews = round($this->percentChange($currentPageViews, $previousPageViews), 2);
-        $currentPagesPerSession = $this->avgData($year, $month, 'current_pages_per_session');
-        $previousPagesPerSession = $this->avgData($year, $month, 'previous_pages_per_session');
+        $currentSessions              = $this->sumData($year, $month, 'current_average_daily_sessions');
+        $previousSessions             = $this->sumData($year, $month, 'previous_average_daily_sessions');
+        $percentChangeSessions        = round($this->percentChange($currentSessions, $previousSessions), 2);
+        $currentUsers                 = $this->sumData($year, $month, 'current_users');
+        $previousUsers                = $this->sumData($year, $month, 'previous_users');
+        $percentChangeUsers           = round($this->percentChange($currentUsers, $previousUsers), 2);
+        $currentPageViews             = $this->sumData($year, $month, 'current_page_views');
+        $previousPageViews            = $this->sumData($year, $month, 'previous_page_views');
+        $percentChangePageViews       = round($this->percentChange($currentPageViews, $previousPageViews), 2);
+        $currentPagesPerSession       = $this->avgData($year, $month, 'current_pages_per_session');
+        $previousPagesPerSession      = $this->avgData($year, $month, 'previous_pages_per_session');
         $percentChangePagesPerSession = round($this->percentChange($currentPagesPerSession, $previousPagesPerSession), 2);
-        $currentSessionDuration = $this->avgData($year, $month, 'current_average_session_duration');
-        $previousSessionDuration = $this->avgData($year, $month, 'previous_average_session_duration');
+        $currentSessionDuration       = $this->avgData($year, $month, 'current_average_session_duration');
+        $previousSessionDuration      = $this->avgData($year, $month, 'previous_average_session_duration');
         $percentChangeSessionDuration = round($this->percentChange($currentSessionDuration, $previousSessionDuration), 2);
 
         dd($percentChangeSessionDuration);
-
     }
 
     /**
@@ -287,12 +285,11 @@ class AnalyticsController extends Controller
 
     protected function avgData($year, $month, $column)
     {
-       $average = DB::table('reports')->where([
-           ['year', '=', $year],
-           ['month', '=', $month]
-       ])->avg($column);
+        $average = DB::table('reports')->where([
+           ['year',  '=' , $year],
+           ['month', '=' , $month]
+        ])->avg($column);
 
-       return $average;
+        return $average;
     }
-
 }

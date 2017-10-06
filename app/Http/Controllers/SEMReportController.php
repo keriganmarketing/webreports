@@ -28,7 +28,6 @@ class SEMReportController extends Controller
      */
     public function create()
     {
-
         $companies = Company::all()->sortBy('name');
         return view('semreports.create', compact('companies'));
     }
@@ -44,15 +43,19 @@ class SEMReportController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\SEMReport  $sEMReport
-     * @return \Illuminate\Http\Response
-     */
-    public function show(SEMReport $SEMReport)
+    public function show(Company $company, $year, $month)
     {
-        //
+        $semReport = SEMReport::where([
+           ['company_id', '=', $company->id],
+           ['year', '=', $year],
+           ['month', '=', $month]
+        ])->first();
+
+        if (! $semReport) {
+            $semReport = (new SEMReport())->run($company, $year, $month);
+        }
+
+        return view('reports.show', compact('semReport', 'company'));
     }
 
     /**
@@ -87,39 +90,5 @@ class SEMReportController extends Controller
     public function destroy(SEMReport $SEMReport)
     {
         //
-    }
-
-    public function checkDatabase(Company $company, $year, $month)
-    {
-       $semReport = SEMReport::where([
-           ['company_id', '=', $company->id],
-           ['year', '=', $year],
-           ['month', '=', $month]
-       ])->first();
-
-      if( ! $semReport){
-          return $this->runReport($company, $year, $month);
-      }
-
-      return view('reports.show', compact('semReport', 'company'));
-    }
-
-    private function runReport(Company $company, $year, $month)
-    {
-        $client                = Analytics::setViewId($company->viewId);
-        $report                = new Report();
-        $semreport             = new SEMReport();
-        //determine our dates
-        $currentDates  = $report->determineDates($year, $month);
-        //How many days in the query?
-        $daysInMonth = $report->calculateDaysInMonth($year, $month);
-
-        //create date range for query
-        $currentPeriod  = Period::create($currentDates['start'], $currentDates['end']);
-
-        $current  = $semreport->testMethod($client, $currentPeriod);
-
-        dd($current);
-
     }
 }
