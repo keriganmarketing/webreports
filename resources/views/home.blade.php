@@ -11,15 +11,15 @@
                 <div class="panel-body">
                     <form action="#" method="post" id="reportForm">
                         {{ csrf_field() }}
-                        <select id="company">
+                        <select id="company" class="custom-select">
                             @foreach($companies as $company)
                                 <option value="{{ $company->id }}">{{ $company->name }}</option>
                             @endforeach
                         </select>
-                        <select id="month">
+                        <select id="month" class="custom-select">
                             @for($i = 1; $i < 26; $i++)
-                                <option value="/report/{{ Carbon\Carbon::now()->subMonths($i)->year }}/{{ Carbon\Carbon::now()->subMonths($i)->month}}">
-                                    {{ Carbon\Carbon::now()->subMonths($i)->format('F, Y') }}
+                                <option value="/report/{{ Carbon\Carbon::now()->firstOfMonth()->subMonths($i)->year }}/{{ Carbon\Carbon::now()->firstOfMonth()->subMonths($i)->month}}">
+                                    {{ Carbon\Carbon::now()->firstOfMonth()->subMonths($i)->format('F, Y') }}
                                 </option>
                             @endfor
 
