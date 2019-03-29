@@ -2,7 +2,6 @@
 
 @section('content')
     {{-- $finalReport, $company --}}
-
     <div class="wrapper">
         <div class="container">
             <div class="row">
@@ -11,17 +10,17 @@
                 </div>
                 <div class="col-md-9" style="padding-top: 40px;">
                     <p class="text-right"><strong>{{ $company->name }}</strong> &ndash; Website Statistics Report</p>
-                    <p class="text-right">{{ Carbon\Carbon::create($finalReport->year, $finalReport->month)->format('F Y') }}</p>
+                    <p class="text-right">{{ Carbon\Carbon::create($finalReport->year, $finalReport->month, 1)->format('F Y') }}</p>
                 </div>
             </div>
             <div class="row header">
                 <h2 class="text-center">Audience Overview</h2>
-                <p class="text-center">{{ Carbon\Carbon::create($finalReport->year, $finalReport->month)->format('F Y') }}
+                <p class="text-center">{{ Carbon\Carbon::create($finalReport->year, $finalReport->month, 1)->format('F Y') }}
                     vs
                     @if($finalReport->comparedWithLastMonth)
-                        {{ Carbon\Carbon::create($finalReport->year, $finalReport->month - 1)->format('F Y') }}
+                        {{ Carbon\Carbon::create($finalReport->year, $finalReport->month - 1, 1)->format('F Y') }}
                     @else
-                        {{ Carbon\Carbon::create($finalReport->year - 1, $finalReport->month)->format('F Y') }}
+                        {{ Carbon\Carbon::create($finalReport->year - 1, $finalReport->month, 1)->format('F Y') }}
                     @endif
                 </p>
             </div>
