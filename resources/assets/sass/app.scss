@@ -1,30 +1,15 @@
-
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
-
-// Variables
-@import "variables";
+@import "fonts";
 
 // Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "bootstrap";
 
-body{
-  font-family:"Open Sans", sans-serif;
-}
-.wrapper{
-  padding-top: 70px;
-  padding-bottom: 70px;
-}
 
-.header{
-  margin-top: 20px;
-  background: #0b3a5d;
-  color:#fff;
-}
 .big-number{
   font-size: 2.5em;
   text-align: center;
   font-weight: 300;
+  color: $secondary;
 }
 .red{
   color: #d5451e;
@@ -32,16 +17,17 @@ body{
 .green{
   color: #7cb700;
 }
-.compare-header {
-  font-size: 2rem;
-  font-weight: lighter;
-  margin-bottom: 5px;
-  padding: 30px .25rem 0;
+.attribute-header {
+  display: flex;
+  height:100px;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  color: $gray-600;
 }
 hr{
-  margin-top:0;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid $dark;
 }
 .description{
   text-align: center;
@@ -64,13 +50,7 @@ hr{
   display:flex;
   align-items:center;
 }
-.light-grey-bg{
-  background: #ddd;
-}
-.single-line{
-  padding-top: 40px;
-  margin-bottom: -5px;
-}
+
 .desktop{
   height: 40px;
   padding-top: 20px;
@@ -93,7 +73,7 @@ hr{
   font-size: 1.4em;
 }
 .visitors{
-  color:#1C558F;
+  color: $secondary;
   margin-bottom:0;
 }
 .visitor-type{
@@ -134,11 +114,22 @@ p.page-name, .page-percentage {
   padding: 10px 0 5px;
   font-size: 1.5em;
 }
-.page-name a{
+.page-name a {
   text-decoration: underline;
-  font-weight: lighter;
+  font-size: 1.3rem;
 }
 
 .page-percentage{
   font-size: 1.4em;
+  color: $secondary;
+}
+
+.traffic-source {
+  height:100px;
+  @media screen and (max-width: 566px){
+    background-color: $white !important;
+    border-bottom: rgba(0,0,0,.3) 1px solid;
+    padding: 1rem !important;
+    height: auto;
+  }
 }

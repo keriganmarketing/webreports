@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+    <div class="row justify-content-center py-4">
+        <div class="col-md-10">
             <h3>SEM Report</h3>
-            <div class="panel panel-default">
-                <div class="panel-heading">
+            <div class="card">
+                <div class="card-header">
                     <h3 class="panel-title">Select Company and Month</h3>
                 </div>
                 <div class="panel-body">

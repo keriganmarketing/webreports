@@ -2,31 +2,33 @@
 
 @section('content')
     {{-- $finalReport, $company --}}
-    <div class="wrapper">
+    <div class="wrapper py-3">
         <div class="container">
-            <div class="row">
-                <div class="col-md-3 pull-left">
-                    <img src="/img/kma-logo.png" alt="KMA" class="img img-responsive">
+            <div class="row align-items-center justify-content-between ">
+                <div class="col-md-5 col-lg-4 col-xl-3 p-3 text-center">
+                    <img src="/img/kma-logo.png" alt="KMA" class="img-fluid" width="250">
                 </div>
-                <div class="col-md-9" style="padding-top: 40px;">
-                    <p class="text-right"><strong>{{ $company->name }}</strong> &ndash; Website Statistics Report</p>
-                    <p class="text-right">{{ Carbon\Carbon::create($finalReport->year, $finalReport->month, 1)->format('F Y') }}</p>
+                <div class="col-auto p-3 pt-4 flex-grow-1">
+                    <p class="text-center text-md-right text-primary display-2"><strong>{{ $company->name }}</strong></p>
+                    <p class="text-center text-md-right text-secondary">{{ Carbon\Carbon::create($finalReport->year, $finalReport->month, 1)->format('F Y') }} Website Statistics Report</p>
                 </div>
             </div>
-            <div class="row header">
-                <h2 class="text-center">Audience Overview</h2>
-                <p class="text-center">{{ Carbon\Carbon::create($finalReport->year, $finalReport->month, 1)->format('F Y') }}
-                    vs
-                    @if($finalReport->comparedWithLastMonth)
-                        {{ Carbon\Carbon::create($finalReport->year, $finalReport->month - 1, 1)->format('F Y') }}
-                    @else
-                        {{ Carbon\Carbon::create($finalReport->year - 1, $finalReport->month, 1)->format('F Y') }}
-                    @endif
-                </p>
+            <div class="row mt-2">
+                <div class="col p-2 text-center bg-primary text-white">
+                    <p class="display-1">Audience Overview</p>
+                    <p class="display-4">{{ Carbon\Carbon::create($finalReport->year, $finalReport->month, 1)->format('F Y') }}
+                        vs
+                        @if($finalReport->comparedWithLastMonth)
+                            {{ Carbon\Carbon::create($finalReport->year, $finalReport->month - 1, 1)->format('F Y') }}
+                        @else
+                            {{ Carbon\Carbon::create($finalReport->year - 1, $finalReport->month, 1)->format('F Y') }}
+                        @endif
+                    </p>
+                </div>
             </div>
             <div class="row">
-                <div class="col-md-2 text-center">
-                    <p class="compare-header">Average Daily Sessions</p>
+                <div class="col-sm-6 col-md-4 col-xl-2 text-center pt-4">
+                    <p class="display-3 attribute-header">Average Daily Sessions</p>
                     <hr>
                     @php
                         if($finalReport->percent_change_sessions < 0){
@@ -47,8 +49,8 @@
                         A session is the period of time a user is actively engaged with your website.
                     </p>
                 </div>
-                <div class="col-md-2 text-center">
-                    <p class="compare-header single-line">Users<br>&nbsp;</p>
+                <div class="col-sm-6 col-md-4 col-xl-2 text-center pt-4">
+                    <p class="display-3 attribute-header">Users</p>
                     <hr>
                     @php
                         if($finalReport->percent_change_users < 0){
@@ -69,8 +71,8 @@
                         Includes both new and returning users.
                     </p>
                 </div>
-                <div class="col-md-2 text-center">
-                    <p class="compare-header single-line">Page Views<br>&nbsp;</p>
+                <div class="col-sm-6 col-md-4 col-xl-2 text-center pt-4">
+                    <p class="display-3 attribute-header">Page Views</p>
                     <hr>
                     @php
                         if($finalReport->percent_change_page_views < 0){
@@ -90,8 +92,8 @@
                         The total number of pages viewed within the date range.
                     </p>
                 </div>
-                <div class="col-md-2 text-center">
-                    <p class="compare-header">Pages Per Session</p>
+                <div class="col-sm-6 col-md-4 col-xl-2 text-center pt-4">
+                    <p class="display-3 attribute-header">Pages Per Session</p>
                     <hr>
                     @php
                         if($finalReport->percent_change_pages_per_session < 0){
@@ -111,8 +113,8 @@
                         The average number of pages viewed during a session.
                     </p>
                 </div>
-                <div class="col-md-2 text-center">
-                    <p class="compare-header">Average Session Duration</p>
+                <div class="col-sm-6 col-md-4 col-xl-2 text-center pt-4">
+                    <p class="display-3 attribute-header">Average Session Duration</p>
                     <hr>
                     @php
                         if($finalReport->percent_change_average_session_duration < 0){
@@ -132,8 +134,8 @@
                         The average length of a session.
                     </p>
                 </div>
-                <div class="col-md-2 text-center">
-                    <p class="compare-header single-line">Bounce Rate <br>&nbsp;</p>
+                <div class="col-sm-6 col-md-4 col-xl-2 text-center pt-4">
+                    <p class="display-3 attribute-header">Bounce Rate</p>
                     <hr>
                     @php
                         if($finalReport->percent_change_bounce_rate < 0){
@@ -155,31 +157,31 @@
                     </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 devices-wrapper">
-                    <h2 class="text-center header device-header">Device Used</h2>
-                    <div class="device-images">
-                        <div class="col-md-4 device-container">
-                            <img src="/img/desktop.png" alt="desktop" class="device img img-responsive">
+            <div class="row py-4">
+                <div class="col-lg-6 devices-wrapper">
+                    <h2 class="p-2 text-center bg-primary text-white">Device Used</h2>
+                    <div class="device-images row">
+                        <div class="col-md-4 py-2 text-center">
+                            <img src="/img/desktop.png" alt="desktop" class="device img img-fluid">
                             <p class="text-center desktop">desktop</p>
                             <hr>
                             <p class="big-number">{{$finalReport->desktop_percentage}}%</p>
                         </div>
-                        <div class="col-md-4 device-container">
-                            <img src="/img/phone.png" alt="desktop" class="device img img-responsive phone">
+                        <div class="col-md-4 py-2 text-center">
+                            <img src="/img/phone.png" alt="desktop" class="device img img-fluid phone">
                             <p class="text-center phone-text">mobile</p>
                             <hr>
                             <p class="big-number">{{$finalReport->mobile_percentage}}%</p>
                         </div>
-                        <div class="col-md-4 device-container">
-                            <img src="/img/tablet.png" alt="desktop" class="device img img-responsive tablet">
+                        <div class="col-md-4 py-2 text-center">
+                            <img src="/img/tablet.png" alt="desktop" class="device img img-fluid tablet">
                             <p class="text-center tablet-text">tablet</p>
                             <hr>
                             <p class="big-number">{{$finalReport->tablet_percentage}}%</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     <div class="new-vs-returning">
                         <div class="returning col-md-6">
                             <p class="big-number visitors">{{ $finalReport->returning_visitors }}%</p>
@@ -195,46 +197,50 @@
                 </div>
             </div>
             <div class="row">
-                <h2 class="text-center header device-header">Traffic Sources</h2>
+                <div class="col p-2 text-center bg-primary text-white" >
+                    <h2 class="text-center">Traffic Sources</h2>
+                </div>
             </div>
             <div class="row">
-                <div class="col-md-6 text-center height-60 no-gutter">
-                    <span class="col-md-3 traffic-header no-gutter">Organic Search: </span>
-                    <span class="col-md-3 big-number traffic-number" >{{ number_format($finalReport->organic_search, 1, '.', ',') }}%</span>
-                    <span class="text-left col-md-6 no-gutter traffic-description"><small>Visitors that found you on Google, Yahoo, Bing, etc.</small></span>
+                <div class="col-md-6 text-center no-gutter d-flex flex-wrap align-items-center traffic-source">
+                    <span class="col-6 col-xl-4 text-right  display-3 px-2">Organic Search: </span>
+                    <span class="col-6 col-xl-3 display-1 text-left text-xl-center text-secondary" >{{ number_format($finalReport->organic_search, 1, '.', ',') }}%</span>
+                    <span class="text-left col-xl-5 text-center text-xl-left p-2 pt-0 pt-xl-2 flex-grow d-flex align-items-start"><small class="w-100">Visitors that found you on Google, Yahoo, Bing, etc.</small></span>
                 </div>
-                <div class="col-md-6 text-center light-grey-bg height-60 no-gutter">
-                    <span class="col-md-3 traffic-header no-gutter">Email: </span>
-                    <span class="col-md-3 big-number traffic-number">{{ number_format($finalReport->email_search, 1, '.', ',') }}%</span>
-                    <span class="text-left col-md-6 no-gutter traffic-description"><small>Users who click to your website from an email</small></span>
-                </div>
-            </div>
-            <div class="row height-60">
-                <div class="col-md-6 text-center light-grey-bg height-60 no-gutter">
-                    <span class="col-md-3 traffic-header no-gutter">Referral: </span>
-                    <span class="col-md-3 big-number traffic-number">{{ number_format($finalReport->referral, 1, '.', ',') }}%</span>
-                    <span class="text-left col-md-6 no-gutter traffic-description"><small>Other websites that link to you</small></span>
-                </div>
-                <div class="col-md-6 text-center height-60 no-gutter">
-                    <span class="col-md-3 traffic-header no-gutter">Social: </span>
-                    <span class="col-md-3 big-number traffic-number">{{ number_format($finalReport->social, 1, '.', ',') }}%</span>
-                    <span class="text-left col-md-6 no-gutter traffic-description"><small>Users who click to your website from a social media page or post.</small></span>
+                <div class="col-md-6 text-center bg-light no-gutter d-flex flex-wrap align-items-center traffic-source">
+                    <span class="col-6 col-xl-4 text-right  display-3 px-2">Email: </span>
+                    <span class="col-6 col-xl-3 display-1 text-left text-xl-center text-secondary">{{ number_format($finalReport->email_search, 1, '.', ',') }}%</span>
+                    <span class="text-left col-xl-5 text-center text-xl-left p-2 pt-0 pt-xl-2 flex-grow d-flex align-items-start"><small class="w-100">Users who click to your website from an email</small></span>
                 </div>
             </div>
-            <div class="row height-60">
-                <div class="col-md-6 text-center height-60 no-gutter">
-                    <span class="col-md-3 traffic-header no-gutter">Direct Traffic: </span>
-                    <span class="col-md-3 big-number traffic-number">{{ number_format($finalReport->direct_traffic, 1, '.', ',') }}%</span>
-                    <span class="text-left col-md-6 no-gutter traffic-description"><small>Users that type your domain name into their address bar, or have your site saved in their favorites</small></span>
+            <div class="row">
+                <div class="col-md-6 text-center bg-light no-gutter d-flex flex-wrap align-items-center traffic-source">
+                    <span class="col-6 col-xl-4 text-right  display-3 px-2">Referral: </span>
+                    <span class="col-6 col-xl-3 display-1 text-left text-xl-center text-secondary">{{ number_format($finalReport->referral, 1, '.', ',') }}%</span>
+                    <span class="text-left col-xl-5 text-center text-xl-left p-2 pt-0 pt-xl-2 flex-grow d-flex align-items-start"><small class="w-100">Other websites that link to you</small></span>
                 </div>
-                <div class="col-md-6 text-center light-grey-bg height-60 no-gutter">
-                    <span class="col-md-3 traffic-header no-gutter">Paid Search: </span>
-                    <span class="col-md-3 big-number traffic-number">{{ number_format($finalReport->paid_search, 1, '.', ',') }}%</span>
-                    <span class="text-left col-md-6 no-gutter traffic-description"><small>Users who click to your website from a sponsored listing or display ad.</small></span>
+                <div class="col-md-6 text-center no-gutter d-flex flex-wrap align-items-center traffic-source">
+                    <span class="col-6 col-xl-4 text-right  display-3 px-2">Social: </span>
+                    <span class="col-6 col-xl-3 display-1 text-left text-xl-center text-secondary">{{ number_format($finalReport->social, 1, '.', ',') }}%</span>
+                    <span class="text-left col-xl-5 text-center text-xl-left p-2 pt-0 pt-xl-2 flex-grow d-flex align-items-start"><small class="w-100">Users who click to your website from a social media page or post.</small></span>
                 </div>
             </div>
-            <div class="row header">
-                <h2 class="text-center">Most Visited Pages</h2>
+            <div class="row">
+                <div class="col-md-6 text-center no-gutter d-flex flex-wrap align-items-center traffic-source">
+                    <span class="col-6 col-xl-4 text-right  display-3 px-2">Direct Traffic: </span>
+                    <span class="col-6 col-xl-3 display-1 text-left text-xl-center text-secondary">{{ number_format($finalReport->direct_traffic, 1, '.', ',') }}%</span>
+                    <span class="text-left col-xl-5 text-center text-xl-left p-2 pt-0 pt-xl-2 flex-grow d-flex align-items-start"><small class="w-100">Users that type your domain name into their address bar, or have your site saved in their favorites</small></span>
+                </div>
+                <div class="col-md-6 text-center bg-light no-gutter d-flex flex-wrap align-items-center traffic-source">
+                    <span class="col-6 col-xl-4 text-right  display-3 px-2">Paid Search: </span>
+                    <span class="col-6 col-xl-3 display-1 text-left text-xl-center text-secondary">{{ number_format($finalReport->paid_search, 1, '.', ',') }}%</span>
+                    <span class="text-left col-xl-5 text-center text-xl-left p-2 pt-0 pt-xl-2 flex-grow d-flex align-items-start"><small class="w-100">Users who click to your website from a sponsored listing or display ad.</small></span>
+                </div>
+            </div>
+            <div class="row header mt-5">
+                <div class="col p-2 text-center bg-primary text-white" >
+                    <h2 class="text-center">Most Visited Pages</h2>
+                </div>
             </div>
             @php
                 $page_name_array = [
@@ -255,120 +261,120 @@
                 }
             @endphp
             <div class="row">
-                <div class="col-md-11 white-right-border">
+                <div class="col flex-grow col-xl-11 white-right-border">
                     <p class="page-name">
                         1&nbsp;&nbsp;&nbsp;<a href="{{ $company->url . $finalReport->most_visited_page_name_1 }}" target="_blank">{{ $readable_name_array[0] }}</a>
                     </p>
                 </div>
-                <div class="col-md-1">
+                <div class="col-auto col-xl-1">
                     <p class="page-percentage">
                         {{ $finalReport->most_visited_page_percentage_1 }}%
                     </p>
                 </div>
             </div>
-            <div class="row light-grey-bg">
-                <div class="col-md-11 white-right-border">
+            <div class="row bg-light">
+                <div class="col flex-grow col-xl-11 white-right-border">
                     <p class="page-name">
                         2&nbsp;&nbsp;&nbsp;<a href="{{ $company->url . $finalReport->most_visited_page_name_2 }}" target="_blank">{{ $readable_name_array[1] }}</a>
                     </p>
                 </div>
-                <div class="col-md-1">
+                <div class="col-auto col-xl-1">
                     <p class="page-percentage">
                         {{ $finalReport->most_visited_page_percentage_2 }}%
                     </p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-11 white-right-border">
+                <div class="col flex-grow col-xl-11 white-right-border">
                     <p class="page-name">
                         3&nbsp;&nbsp;&nbsp;<a href="{{ $company->url . $finalReport->most_visited_page_name_3 }}" target="_blank">{{  $readable_name_array[2] }}</a>
                     </p>
                 </div>
-                <div class="col-md-1">
+                <div class="col-auto col-xl-1">
                     <p class="page-percentage">
                         {{ $finalReport->most_visited_page_percentage_3 }}%
                     </p>
                 </div>
             </div>
-            <div class="row light-grey-bg">
-                <div class="col-md-11 white-right-border">
+            <div class="row bg-light">
+                <div class="col flex-grow col-xl-11 white-right-border">
                     <p class="page-name">
                         4&nbsp;&nbsp;&nbsp;<a href="{{ $company->url . $finalReport->most_visited_page_name_4 }}" target="_blank">{{  $readable_name_array[3] }}</a>
                     </p>
                 </div>
-                <div class="col-md-1">
+                <div class="col-auto col-xl-1">
                     <p class="page-percentage">
                         {{ $finalReport->most_visited_page_percentage_4 }}%
                     </p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-11 white-right-border">
+                <div class="col flex-grow col-xl-11 white-right-border">
                     <p class="page-name">
                         5&nbsp;&nbsp;&nbsp;<a href="{{ $company->url . $finalReport->most_visited_page_name_5 }}" target="_blank">{{  $readable_name_array[4] }}</a>
                     </p>
                 </div>
-                <div class="col-md-1">
+                <div class="col-auto col-xl-1">
                     <p class="page-percentage">
                         {{ $finalReport->most_visited_page_percentage_5 }}%
                     </p>
                 </div>
             </div>
-            <div class="row light-grey-bg">
-                <div class="col-md-11 white-right-border">
+            <div class="row bg-light">
+                <div class="col flex-grow col-xl-11 white-right-border">
                     <p class="page-name">
                         6&nbsp;&nbsp;&nbsp;<a href="{{ $company->url . $finalReport->most_visited_page_name_6 }}" target="_blank">{{  $readable_name_array[5] }}</a>
                     </p>
                 </div>
-                <div class="col-md-1">
+                <div class="col-auto col-xl-1">
                     <p class="page-percentage">
                         {{ $finalReport->most_visited_page_percentage_6 }}%
                     </p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-11 white-right-border">
+                <div class="col flex-grow col-xl-11 white-right-border">
                     <p class="page-name">
                         7&nbsp;&nbsp;&nbsp;<a href="{{ $company->url . $finalReport->most_visited_page_name_7 }}" target="_blank">{{ $readable_name_array[6]  }}</a>
                     </p>
                 </div>
-                <div class="col-md-1">
+                <div class="col-auto col-xl-1">
                     <p class="page-percentage">
                         {{ $finalReport->most_visited_page_percentage_7 }}%
                     </p>
                 </div>
             </div>
-            <div class="row light-grey-bg">
-                <div class="col-md-11 white-right-border">
+            <div class="row bg-light">
+                <div class="col flex-grow col-xl-11 white-right-border">
                     <p class="page-name">
                         8&nbsp;&nbsp;&nbsp;<a href="{{ $company->url . $finalReport->most_visited_page_name_8 }}" target="_blank">{{  $readable_name_array[7] }}</a>
                     </p>
                 </div>
-                <div class="col-md-1">
+                <div class="col-auto col-xl-1">
                     <p class="page-percentage">
                         {{ $finalReport->most_visited_page_percentage_8 }}%
                     </p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-11 white-right-border">
+                <div class="col flex-grow col-xl-11 white-right-border">
                     <p class="page-name">
                         9&nbsp;&nbsp;&nbsp;<a href="{{ $company->url . $finalReport->most_visited_page_name_9 }}" target="_blank">{{  $readable_name_array[8] }}</a>
                     </p>
                 </div>
-                <div class="col-md-1">
+                <div class="col-auto col-xl-1">
                     <p class="page-percentage">
                         {{ $finalReport->most_visited_page_percentage_9 }}%
                     </p>
                 </div>
             </div>
-            <div class="row light-grey-bg">
-                <div class="col-md-11 white-right-border">
+            <div class="row bg-light">
+                <div class="col flex-grow col-xl-11 white-right-border">
                     <p class="page-name">
                         10&nbsp;&nbsp;<a href="{{ $company->url . $finalReport->most_visited_page_name_10 }}" target="_blank">{{  $readable_name_array[9]  }}</a>
                     </p>
                 </div>
-                <div class="col-md-1">
+                <div class="col-auto col-xl-1">
                     <p class="page-percentage">
                         {{ $finalReport->most_visited_page_percentage_10 }}%
                     </p>

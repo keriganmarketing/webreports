@@ -20,64 +20,41 @@
         ]) !!};
     </script>
 </head>
-<body style="font-family: 'Open Sans', sans-serif;">
+<body class="bg-light">
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+        <div class="d-flex flex-column flex-md-row align-items-center px-md-4 mb-3 bg-white border-bottom shadow-sm">
+            <!-- Branding Image -->
+            <a class="navbar-brand text-info font-weight-bold py-3" href="{{ url('/') }}">
+                {{ config('app.name', 'Laravel') }}
+            </a>
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+            <nav class="my-md-0 ml-md-auto mr-md-3 text-center">
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                @if (Auth::guest())
+                    <a class="p-2 py-md-4 text-secondary d-inline-block" href="{{ route('login') }}">Login</a>
+                    {{-- <a class="p-2 py-md-4 text-secondary d-inline-block" href="{{ route('register') }}">Register</a> --}}
+                @else
+                    {{-- <span class="p-2 text-dark"> Hello 
+                        {{ Auth::user()->name }}!
+                    </span> --}}
+
+                    <a class="p-2 py-md-4 text-secondary d-inline-block font-weight-bold" href="{{ route('company.create') }}">Add Company</a>
+                    <a class="p-2 py-md-4 text-secondary d-inline-block font-weight-bold" href="/">Run&nbsp;Report</a>
+
+                    <a class="p-2 py-md-4 text-secondary d-inline-block" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        Logout
                     </a>
-                </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                    <li><a href="{{ route('company.create') }}">Add Company</a></li>
-                    {{-- <li><a href="{{ route('semreport.create') }}">SEM Reports</a></li> --}}
-                    </ul>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                @endif
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+            </nav>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        </div>
 
         @yield('content')
     </div>

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'KMA Web Reports') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -20,7 +20,7 @@
         ]) !!};
     </script>
 </head>
-<body style="font-family: 'Open Sans', sans-serif;">
+<body>
     @yield('content')
 </body>
 </html>

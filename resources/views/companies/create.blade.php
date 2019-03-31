@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Create Company</div>
-                <div class="panel-body">
+    <div class="row justify-content-center py-4">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Create Company</div>
+                <div class="card-body">
                     <form class="form-horizontal" role="form" method="POST" action="/company">
                         {{ csrf_field() }}
 

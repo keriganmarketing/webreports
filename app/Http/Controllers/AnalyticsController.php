@@ -68,8 +68,12 @@ class AnalyticsController extends Controller
         }
 
         $paidSearchData = $report->fetchPaidSearchData($client, $currentPeriod);
+        $channels       = $report->fetchChannels($client, $currentPeriod);
+        
+        if(!$channels || !isset($channels['direct'])) {
+            return view('reports.error');
+        }
 
-        $channels             = $report->fetchChannels($client, $currentPeriod);
         $directTraffic        = $this->calculatePercentage($channels['direct'], $totalCurrentSessions);
         $organicSearchTraffic = $this->calculatePercentage($channels['organicsearch'], $totalCurrentSessions);
         $referralTraffic      = isset($channels['referral']) ? $this->calculatePercentage($channels['referral'], $totalCurrentSessions) : '0';

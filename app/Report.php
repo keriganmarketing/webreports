@@ -80,6 +80,10 @@ class Report extends Model
 
         $formattedArray = [];
 
+        if(!is_array($channelData)){
+            return false;
+        }
+
         foreach ($channelData as $cd) {
             $formattedArray[strtolower(preg_replace('/\s/', '', $cd[0]))] = $cd[1];
         }
