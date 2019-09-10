@@ -200,9 +200,9 @@
                             </div>
                             
                         </div>
-                        <div class="d-flex h-100 ">
-                            <div class="bg-secondary py-2" style="width:{{ $finalReport->new_visitors }}% !important; transform: skew(10deg);">&nbsp;</div>
-                            <div class="bg-info py-2" style="width:{{ $finalReport->returning_visitors }}% !important; transform: skew(10deg);">&nbsp;</div>
+                        <div class="d-flex h-100 " style="border-radius: 20px; box-shadow: inset 0 0 10px rgba(0,0,0,.5)">
+                            <div class="bg-secondary py-2" style="width:{{ $finalReport->new_visitors }}% !important; border-radius: 20px 0 0 20px">&nbsp;</div>
+                            <div class="bg-info py-2" style="width:{{ $finalReport->returning_visitors }}% !important; border-radius: 0 20px 20px 0">&nbsp;</div>
                         </div>
                     </div>
                 </div>

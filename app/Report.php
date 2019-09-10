@@ -60,7 +60,7 @@ class Report extends Model
         $compareParams = 'ga:sessions';
         $otherParams = [
             'dimensions' => 'ga:source',
-            'filters'    => 'ga:medium==cpa,ga:medium==cpc,ga:medium==cpm,ga:medium==cpp,ga:medium==cpv,ga:medium==ppc',
+            'filters'    => 'ga:channelGrouping==Display,ga:channelGrouping==Paid%20Search',
             'sort'       => 'ga:sessions'
         ];
 
