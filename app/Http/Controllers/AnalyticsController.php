@@ -127,7 +127,7 @@ class AnalyticsController extends Controller
         $previousAverageDailySessions = ($totalPreviousSessions / $daysInMonth);
 
         //calculate the percent change
-        $percentChangeSessions            = $this->percentChange($totalCurrentSessions, $totalPreviousSessions);
+        $percentChangeSessions            = $this->percentChange($currentAverageDailySessions, $previousAverageDailySessions);
         $percentChangeUsers               = $this->percentChange($totalCurrentUsers, $totalPreviousUsers);
         $percentChangePageViews           = $this->percentChange($totalCurrentPageViews, $totalPreviousPageViews);
         $percentChangePageViewsPerSession = $this->percentChange($totalCurrentPageViewsPerSession, $totalPreviousPageViewsPerSession);
