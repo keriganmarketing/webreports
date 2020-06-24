@@ -23,7 +23,20 @@ class AnalyticsController extends Controller
             return $this->runReport($company, $year, $month);
         }
 
-        return view('reports.show', compact('finalReport', 'company'));
+        $companies = Company::all()->sortBy('name');
+        $dates = [];
+       
+        for($i = 1; $i < 26; $i++){
+            $dates[] = [
+                'year' => Carbon::now()->firstOfMonth()->subMonths($i)->year,
+                'month' => Carbon::now()->firstOfMonth()->subMonths($i)->month,
+                'name' => Carbon::now()->firstOfMonth()->subMonths($i)->format('F, Y')
+            ];
+        }
+
+        $dates = json_encode($dates);
+
+        return view('reports.show', compact('finalReport', 'company', 'companies', 'dates'));
     }
 
     public function runReport(Company $company, $year, $month)
@@ -38,6 +51,7 @@ class AnalyticsController extends Controller
 
         //How many days in the query?
         $daysInMonth = $report->calculateDaysInMonth($year, $month);
+        $daysInMonthYAG = $report->calculateDaysInMonth($year - 1, $month);
 
         //create date range for query
         $currentPeriod  = Period::create($currentDates['start'], $currentDates['end']);
@@ -109,8 +123,12 @@ class AnalyticsController extends Controller
 
         //get average daily session for current month
         $currentAverageDailySessions      = ($totalCurrentSessions / $daysInMonth);
+        $previousAverageDailySessions      = ($totalPreviousSessions / $daysInMonthYAG);
+        
+        // +1 to account for leap year
+        $notEnougData = ($daysInMonthYAG + 1) < $daysInMonth || $previousAverageDailySessions < 1;
 
-        if ($totalPreviousSessions < 10) {
+        if ($notEnougData) {
             $previousMonth                    = $month - 1;
             $previousAnalyticsData            = $this->compareWithLastMonth($client, $report, $year, $previousMonth);
             $totalPreviousSessions            = $previousAnalyticsData['rows'][0][0];
