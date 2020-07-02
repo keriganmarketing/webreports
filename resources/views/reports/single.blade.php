@@ -79,7 +79,7 @@
                     <p class="display-3 attribute-header">Average Session Duration</p>
                     <hr>
                     <p><span class="big-number">
-                        {{ $reportNow->current_average_session_duration }}
+                        {{ gmdate("i:s", $reportNow->current_average_session_duration) }}
                     </span></p>
                     <p class="description">
                         The average length of a session.
