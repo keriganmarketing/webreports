@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', 'HomeController@index');
-Route::any('/{company}/report/{year}/{month}', 'AnalyticsController@checkDatabase');
+Route::any('/{company}/report/{year}/{month}', 'ReportController@index');
 Route::get('/master-report/{year}/{month}', 'AnalyticsController@masterReport');
 Route::get('/company/create', 'CompaniesController@create')->name('company.create');
 Route::post('/company', 'CompaniesController@store');

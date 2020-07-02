@@ -1,0 +1,135 @@
+// Fonts
+@import "fonts";
+
+// Bootstrap
+@import "bootstrap";
+
+
+.big-number{
+  font-size: 2.5em;
+  text-align: center;
+  font-weight: 300;
+  color: $secondary;
+}
+.red{
+  color: #d5451e;
+}
+.green{
+  color: #7cb700;
+}
+.attribute-header {
+  display: flex;
+  height:100px;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  color: $gray-600;
+}
+hr{
+  border-bottom: 1px solid $dark;
+}
+.description{
+  text-align: center;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 300;
+}
+.devices-wrapper{
+  position: relative;
+}
+.device-header{
+  padding: 20px;
+}
+.device{
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.new-vs-returning{
+  height:300px;
+  display:flex;
+  align-items:center;
+}
+
+.desktop{
+  height: 40px;
+  padding-top: 20px;
+  font-size: 1.4em;
+}
+.phone{
+  margin-top:18px;
+}
+.phone-text{
+  height: 40px;
+  padding-top: 20px;
+  font-size: 1.4em;
+}
+.tablet{
+  margin-top:12px;
+}
+.tablet-text{
+  height: 40px;
+  padding-top: 20px;
+  font-size: 1.4em;
+}
+.visitors{
+  color: $secondary;
+  margin-bottom:0;
+}
+.visitor-type{
+  padding-top: 0;
+}
+.height-60{
+  height: 80px;
+}
+.height-60>p{
+  padding-top:15px;
+}
+.white-right-border{
+  border-right: 3px solid #fff;
+}
+.page-percentage{
+  text-align:center;
+  font-size: 1em;
+}
+.traffic-header{
+  padding: 20px 0;
+  font-size: 1.3em;
+  font-weight: lighter;
+  margin-bottom: 5px;
+  text-align: right;
+}
+.no-gutter{
+  padding-left:0;
+  padding-right:0;
+}
+.traffic-description{
+  padding-top: 20px;
+}
+.traffic-number{
+  padding-top: 5px;
+  padding-right: 20px;
+}
+p.page-name, .page-percentage {
+  padding: 10px 0 5px;
+  font-size: 1.5em;
+}
+.page-name a {
+  text-decoration: underline;
+  font-size: 1.3rem;
+}
+
+.page-percentage{
+  font-size: 1.4em;
+  color: $secondary;
+}
+
+.traffic-source {
+  height:100px;
+  @media screen and (max-width: 566px){
+    background-color: $white !important;
+    border-bottom: rgba(0,0,0,.3) 1px solid;
+    padding: 1rem !important;
+    height: auto;
+  }
+}

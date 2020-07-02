@@ -15,7 +15,28 @@ class Report extends Model
         return $this->belongsTo(Company::class, 'company_id');
     }
 
-    public function determineDates($year, $month)
+    public static function getReport($companyId, $year, $month)
+    {
+        return Report::where([
+            ['company_id', '=', $companyId],
+            ['year', '=', $year],
+            ['month', '=', $month]
+        ])->first();
+    }
+
+    public static function fixTopPageData($topPagesData = [])
+    {
+        for ($i = 0; $i < 10; $i ++) {
+            if (! isset($topPagesData[$i])) {
+                $topPagesData[$i][0] = '/No-Data';
+                $topPagesData[$i][1] = 0;
+            }
+        }
+
+        return $topPagesData;
+    }
+
+    public function determineCurrentMonth($year, $month)
     {
         return [
             'start' => Carbon::now()->year($year)->month($month)->startOfMonth(),
@@ -147,5 +168,11 @@ class Report extends Model
 
 
         return ucwords(strtolower($newName));
+    }
+
+    public function reportIsGood($reportData)
+    {
+        return $reportData->current_average_daily_sessions > 1 &&
+                $reportData->current_users > 0;
     }
 }

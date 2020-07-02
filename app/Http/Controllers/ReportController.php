@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Report;
+use App\Helpers;
+use App\Company;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Spatie\Analytics\Period;
+use Analytics;
+use DB;
 
 class ReportController extends Controller
 {
@@ -12,9 +18,41 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Company $company, $year, $month)
     {
-        //
+        $helpers   = new Helpers();
+        $report    = new Report();
+        $companies = Helpers::getCompanies();
+        $dates     = Helpers::buildDates();
+
+        // Generate Current Month
+        $reportNow = Report::getReport($company->id, $year, $month);
+        if (! $reportNow) {
+            $reportNow = $this->create($company, $year, $month);
+        }
+
+        // See if Current month is good. If not, show error
+        if(! $report->reportIsGood($reportNow)){
+            return view('reports.nodata', compact('company', 'companies', 'dates', 'helpers'));
+        }
+
+        // Generate YAG Comparison
+        $reportYag = Report::getReport($company->id, $year - 1, $month);
+        if (! $reportYag) {
+            $reportYag = $this->create($company, $year - 1, $month);
+        }
+
+        // Is YAG accurate? If not, calculate MAG instead
+        if(! $report->reportIsGood($reportYag)){
+            $reportYag = $this->create($company, $year, $month - 1);
+
+            // Id MAG is not acceptible either, just show month with no comparisons.
+            if(! $report->reportIsGood($reportYag)){
+                return view('reports.single', compact('reportNow', 'company', 'companies', 'dates', 'helpers'));
+            }
+        }
+
+        return view('reports.index', compact('reportNow', 'reportYag', 'company', 'companies', 'dates', 'helpers'));
     }
 
     /**
@@ -22,64 +60,127 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($company, $year, $month)
     {
-        //
-    }
+        $client = Analytics::setViewId($company->viewId);
+        $report = new Report();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $currentDates  = $report->determineCurrentMonth($year, $month);
+        $daysInMonth = $report->calculateDaysInMonth($year, $month);
+        $currentPeriod  = Period::create($currentDates['start'], $currentDates['end']);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Report  $report
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Report $report)
-    {
-        //
-    }
+        $current               = $report->fetchAnalyticsData($client, $currentPeriod);
+        $totalCurrentSessions  = $current['sessions'];
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Report  $report
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Report $report)
-    {
-        //
-    }
+        $deviceCategories  = $report->fetchDeviceCategories($client, $currentPeriod);
+        $desktopSessions   = isset($deviceCategories['desktop']) ? $deviceCategories['desktop'] : null;
+        $mobileSessions    = isset($deviceCategories['mobile']) ? $deviceCategories['mobile'] : null;
+        $tabletSessions    = isset($deviceCategories['tablet']) ? $deviceCategories['tablet'] : null;
+        $desktopPercentage = 0.0;
+        $mobilePercentage  = 0.0;
+        $tabletPercentage  = 0.0;
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Report  $report
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Report $report)
-    {
-        //
-    }
+        if ($desktopSessions) {
+            $desktopPercentage = Helpers::calculatePercentage($desktopSessions, $totalCurrentSessions);
+        }
+        if ($mobileSessions) {
+            $mobilePercentage  = Helpers::calculatePercentage($mobileSessions, $totalCurrentSessions);
+        }
+        if ($tabletSessions) {
+            $tabletPercentage  = Helpers::calculatePercentage($tabletSessions, $totalCurrentSessions);
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Report  $report
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Report $report)
-    {
-        //
+        $paidSearchData = $report->fetchPaidSearchData($client, $currentPeriod);
+        $channels       = $report->fetchChannels($client, $currentPeriod);
+        
+        if(!$channels || !isset($channels['direct'])) {
+            return view('reports.error');
+        }
+
+        $directTraffic        = Helpers::calculatePercentage($channels['direct'], $totalCurrentSessions);
+        $organicSearchTraffic = Helpers::calculatePercentage($channels['organicsearch'], $totalCurrentSessions);
+        $referralTraffic      = isset($channels['referral']) ? Helpers::calculatePercentage($channels['referral'], $totalCurrentSessions) : '0';
+        $socialTraffic        = isset($channels['social']) ? Helpers::calculatePercentage($channels['social'], $totalCurrentSessions) : 0;
+        $paidSearch           = Helpers::calculatePercentage($paidSearchData, $totalCurrentSessions);
+        $emailSearchTraffic   = 100 - ($directTraffic + $organicSearchTraffic + $referralTraffic + $socialTraffic + $paidSearch);
+
+        if ($emailSearchTraffic < .2) {
+            //we'll just round this down to account for any other rounding errors
+            $emailSearchTraffic = 0;
+        }
+
+        $topPagesData                     = $report->fetchTopPages($client, $currentPeriod);
+        $totalSessions                    = $topPagesData[1];
+        $percentNewSessions               = round($current['percentNewSessions'], 2);
+        $percentReturningSessions         = 100 - $percentNewSessions;
+        $totalCurrentUsers                = $current['users'];
+        $totalCurrentPageViews            = $current['pageViews'];
+        $totalCurrentPageViewsPerSession  = $current['pageViewsPerSession'];
+        $totalCurrentSessionDuration      = $current['avgSessionDuration'];
+        $totalCurrentBounceRate           = $current['bounceRate'];
+        $currentAverageDailySessions      = ($totalCurrentSessions / $daysInMonth);
+
+        $topPagesData[0] = Report::fixTopPageData($topPagesData[0]);
+
+        $company     = Company::find($company->id);
+
+        $finalReport = Report::create([
+            'company_id'                              => $company->id,
+            'year'                                    => $year,
+            'month'                                   => $month,
+            'current_average_daily_sessions'          => round($currentAverageDailySessions, 2),
+            'previous_average_daily_sessions'         => 0,
+            'percent_change_sessions'                 => 0,
+            'current_users'                           => round($totalCurrentUsers, 2),
+            'previous_users'                          => 0,
+            'percent_change_users'                    => 0,
+            'current_page_views'                      => round($totalCurrentPageViews, 2),
+            'previous_page_views'                     => 0,
+            'percent_change_page_views'               => 0,
+            'current_pages_per_session'               => round($totalCurrentPageViewsPerSession, 2),
+            'previous_pages_per_session'              => 0,
+            'percent_change_pages_per_session'        => 0,
+            'current_average_session_duration'        => $totalCurrentSessionDuration,
+            'previous_average_session_duration'       => 0,
+            'percent_change_average_session_duration' => 0,
+            'current_bounce_rate'                     => round($totalCurrentBounceRate, 2),
+            'previous_bounce_rate'                    => 0,
+            'percent_change_bounce_rate'              => 0,
+            'desktop_percentage'                      => $desktopPercentage,
+            'mobile_percentage'                       => isset($mobilePercentage) ? $mobilePercentage : 0,
+            'tablet_percentage'                       => $tabletPercentage,
+            'new_visitors'                            => $percentNewSessions,
+            'returning_visitors'                      => $percentReturningSessions,
+            'organic_search'                          => $organicSearchTraffic,
+            'referral'                                => $referralTraffic,
+            'direct_traffic'                          => $directTraffic,
+            'email'                                   => $emailSearchTraffic,
+            'social'                                  => $socialTraffic,
+            'paid_search'                             => $paidSearch,
+            'most_visited_page_name_1'                => $topPagesData[0][0][0],
+            'most_visited_page_percentage_1'          => number_format(Helpers::calculatePercentage($topPagesData[0][0][1], $totalSessions), 2),
+            'most_visited_page_name_2'                => $topPagesData[0][1][0],
+            'most_visited_page_percentage_2'          => number_format(Helpers::calculatePercentage($topPagesData[0][1][1], $totalSessions), 2),
+            'most_visited_page_name_3'                => $topPagesData[0][2][0],
+            'most_visited_page_percentage_3'          => number_format(Helpers::calculatePercentage($topPagesData[0][2][1], $totalSessions), 2),
+            'most_visited_page_name_4'                => $topPagesData[0][3][0],
+            'most_visited_page_percentage_4'          => number_format(Helpers::calculatePercentage($topPagesData[0][3][1], $totalSessions), 2),
+            'most_visited_page_name_5'                => $topPagesData[0][4][0],
+            'most_visited_page_percentage_5'          => number_format(Helpers::calculatePercentage($topPagesData[0][4][1], $totalSessions), 2),
+            'most_visited_page_name_6'                => $topPagesData[0][5][0],
+            'most_visited_page_percentage_6'          => number_format(Helpers::calculatePercentage($topPagesData[0][5][1], $totalSessions), 2),
+            'most_visited_page_name_7'                => $topPagesData[0][6][0],
+            'most_visited_page_percentage_7'          => number_format(Helpers::calculatePercentage($topPagesData[0][6][1], $totalSessions), 2),
+            'most_visited_page_name_8'                => $topPagesData[0][7][0],
+            'most_visited_page_percentage_8'          => number_format(Helpers::calculatePercentage($topPagesData[0][7][1], $totalSessions), 2),
+            'most_visited_page_name_9'                => $topPagesData[0][8][0],
+            'most_visited_page_percentage_9'          => number_format(Helpers::calculatePercentage($topPagesData[0][8][1], $totalSessions), 2),
+            'most_visited_page_name_10'               => $topPagesData[0][9][0],
+            'most_visited_page_percentage_10'         => number_format(Helpers::calculatePercentage($topPagesData[0][9][1], $totalSessions), 2),
+            'comparedWithLastMonth'                   => 0
+        ]);
+
+        return $finalReport;
+
     }
 }
