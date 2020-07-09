@@ -3,7 +3,7 @@
     <line-chart 
         class="h-100"
         v-if="loaded" 
-        :chartdata="chartdata" 
+        :chartData="chartData" 
         :options="options"
         :width="null" 
         :height="null"
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import moment from "moment";
 import LineChart from "./TrendChartModel.vue";
 
 export default {
@@ -35,7 +36,7 @@ export default {
 
   data: () => ({
     loaded: false,
-    chartdata: null,
+    chartData: null,
     options: {},
     styles: {}
   }),
@@ -90,14 +91,14 @@ export default {
       }
 
       data.forEach(item => {
-        // console.log(item);
-        stats.labels.push(item.date)
+        // console.log(moment(item.date, "YYYYMM").format("MMM YYYY"));
+        stats.labels.push(moment(item.date, "YYYYMM").format("MMM YYYY"))
         stats.datasets[0].data.push(item.sessions)
         stats.datasets[1].data.push(item.users)
         stats.datasets[2].data.push(item.views)
       });
 
-      this.chartdata = stats;
+      this.chartData = stats;
       this.loaded = true;
     } catch (e) {
       console.error(e);
