@@ -24,22 +24,33 @@
                 </div>
 
             </div>
+
             <div class="row mt-2">
-                <div class="col p-2 text-center bg-primary text-white">
-                    <p class="display-1">Google Analytics</p>
-                    <p class="display-4">
-                        <strong>{{ Carbon\Carbon::create($reportNow->year, $reportNow->month, 1)->format('F Y') }}</strong>
-                        vs
-                        <strong>{{ Carbon\Carbon::create($reportYag->year, $reportYag->month, 1)->format('F Y') }}</strong>
-                        {{-- @if($reportData->comparedWithLastMonth)
-                            {{ Carbon\Carbon::create($reportData->year, $reportData->month - 1, 1)->format('F Y') }}
-                        @else
-                            {{ Carbon\Carbon::create($reportData->year - 1, $reportData->month, 1)->format('F Y') }}
-                        @endif --}}
+                <div class="col-12 p-2 text-center bg-primary text-white">
+                    <h2 class="m-0">18-Month Trend</h2>
+                    <p class="display-4 m-0">
+                        <strong>{{ Carbon\Carbon::now()->subMonths(19)->format('F Y') }}</strong>
+                        to
+                        <strong>{{ Carbon\Carbon::now()->subMonth()->format('F Y') }}</strong>
                     </p>
                 </div>
+                <div class="col-12 p-0 mb-4"  >
+                    <trend-chart
+                        class="bg-white border border-primary py-4 w-100 "
+                        :company="{{ $company->id }}"
+                        end="{{ Carbon\Carbon::now()->subMonth()->format('Ym') }}"
+                        start="{{ Carbon\Carbon::now()->subMonths(19)->format('Ym') }}"
+                    ></trend-chart>
+                </div>
+                <div class="col-12 p-2 text-center bg-primary text-white">
+                    <h2 class="m-0">
+                        {{ Carbon\Carbon::create($reportNow->year, $reportNow->month, 1)->format('F Y') }}
+                        vs
+                        {{ Carbon\Carbon::create($reportYag->year, $reportYag->month, 1)->format('F Y') }}
+                    </h2>
+                </div>
             </div>
-            <div class="row">
+            <div class="row border border-primary pb-4">
                 <div class="col-sm-6 col-md-4 col-xl-2 text-center pt-4">
                     <p class="display-3 attribute-header">Average Sessions Per Day</p>
                     <hr>
@@ -60,7 +71,6 @@
                         {{ number_format($reportYag->current_average_daily_sessions, 2, '.', ',') }}
                     </p>
                     <p class="description">
-                        Total number of sessions within the date range. <br>
                         A session is the period of time a user is actively engaged with your website.
                     </p>
                 </div>
@@ -84,8 +94,7 @@
                         {{ number_format($reportYag->current_users, 0, '.', ',') }}
                     </p>
                     <p class="description">
-                        Users that have had at least one session within the selected date range. <br>
-                        Includes both new and returning users.
+                        Users are individual people that have at least one session on your website.
                     </p>
                 </div>
                 <div class="col-sm-6 col-md-4 col-xl-2 text-center pt-4">
@@ -108,7 +117,7 @@
                         {{ number_format($reportYag->current_page_views, 0, '.', ',') }}
                     </p>
                     <p class="description">
-                        The total number of pages viewed within the date range.
+                        The total number of individual pages viewed within the date range.
                     </p>
                 </div>
                 <div class="col-sm-6 col-md-4 col-xl-2 text-center pt-4">
@@ -181,10 +190,10 @@
                     </p>
                 </div>
             </div>
-            <div class="row py-4">
-                <div class="col-lg-6 devices-wrapper">
-                    <h2 class="p-2 text-center bg-primary text-white">Device Used</h2>
-                    <div class="device-images row">
+            <div class="row pb-md-4 mt-md-4 ">
+                <div class="col-lg-6 devices-wrapper px-0 pr-md-3">
+                    <h2 class="p-2 text-center bg-primary text-white m-0">Device Used</h2>
+                    <div class="device-images row no-gutters border border-primary">
                         <div class="col-md-4 py-2 text-center">
                             <img src="/img/desktop.png" alt="desktop" class="device img img-fluid">
                             <p class="text-center pt-2">desktop / laptop</p>
@@ -202,13 +211,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="new-vs-returning-visitors d-flex flex-column">
+                <div class="col-lg-6 px-0 pl-md-3 d-flex flex-column">
+                    <h2 class="p-2 text-center bg-primary text-white m-0">New vs Returning Visitors</h2>
+                    <div class="new-vs-returning-visitors d-flex flex-column flex-grow-1 border border-primary p-4">
                         
-                        <div class="row h-50">
-                            <div class="col-12 pb-4">
-                                <h2 class="p-2 text-center bg-primary text-white">New vs Returning Visitors</h2>
-                            </div>
+                        <div class="row h-50 mb-4 no-gutters ">
                             <div class="new col-6">
                                 <p class="big-number visitors">{{ $reportNow->new_visitors }}%</p>
                                 <p class="compare-header text-center visitor-type">New Visitors</p>
@@ -217,21 +224,20 @@
                                 <p class="big-number visitors">{{ $reportNow->returning_visitors }}%</p>
                                 <p class="compare-header text-center visitor-type">Returning Visitors</p>
                             </div>
-                            
                         </div>
-                        <div class="d-flex h-100 " style="border-radius: 20px; box-shadow: inset 0 0 10px rgba(0,0,0,.5)">
+                        <div class="d-flex" style="border-radius: 20px; box-shadow: inset 0 0 10px rgba(0,0,0,.5); height:40px">
                             <div class="bg-secondary py-2" style="width:{{ $reportNow->new_visitors }}% !important; border-radius: 20px 0 0 20px">&nbsp;</div>
                             <div class="bg-info py-2" style="width:{{ $reportNow->returning_visitors }}% !important; border-radius: 0 20px 20px 0">&nbsp;</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row ">
                 <div class="col p-2 text-center bg-primary text-white" >
                     <h2 class="text-center">Traffic Sources</h2>
                 </div>
             </div>
-            <div class="row">
+            <div class="row border border-primary">
                 <div class="col-md-6 text-center no-gutter d-flex flex-wrap align-items-center traffic-source">
                     <span class="col-6 col-xl-4 text-right  display-3 px-2">Organic Search: </span>
                     <span class="col-6 col-xl-3 display-1 text-left text-xl-center text-secondary" >{{ number_format($reportNow->organic_search, 1, '.', ',') }}%</span>
@@ -242,8 +248,7 @@
                     <span class="col-6 col-xl-3 display-1 text-left text-xl-center text-secondary">{{ number_format($reportNow->email_search, 1, '.', ',') }}%</span>
                     <span class="text-left col-xl-5 text-center text-xl-left p-2 pt-0 pt-xl-2 flex-grow d-flex align-items-start"><small class="w-100">Users who click to your website from an email</small></span>
                 </div>
-            </div>
-            <div class="row">
+            
                 <div class="col-md-6 text-center bg-light no-gutter d-flex flex-wrap align-items-center traffic-source">
                     <span class="col-6 col-xl-4 text-right  display-3 px-2">Referral: </span>
                     <span class="col-6 col-xl-3 display-1 text-left text-xl-center text-secondary">{{ number_format($reportNow->referral, 1, '.', ',') }}%</span>
@@ -254,8 +259,7 @@
                     <span class="col-6 col-xl-3 display-1 text-left text-xl-center text-secondary">{{ number_format($reportNow->social, 1, '.', ',') }}%</span>
                     <span class="text-left col-xl-5 text-center text-xl-left p-2 pt-0 pt-xl-2 flex-grow d-flex align-items-start"><small class="w-100">Users who click to your website from a social media page, post, or ad.</small></span>
                 </div>
-            </div>
-            <div class="row">
+            
                 <div class="col-md-6 text-center no-gutter d-flex flex-wrap align-items-center traffic-source">
                     <span class="col-6 col-xl-4 text-right  display-3 px-2">Direct Traffic: </span>
                     <span class="col-6 col-xl-3 display-1 text-left text-xl-center text-secondary">{{ number_format($reportNow->direct_traffic, 1, '.', ',') }}%</span>
@@ -267,14 +271,14 @@
                     <span class="text-left col-xl-5 text-center text-xl-left p-2 pt-0 pt-xl-2 flex-grow d-flex align-items-start"><small class="w-100">Users who click to your website from a sponsored listing or display ad.</small></span>
                 </div>
             </div>
-            <div class="row header mt-5">
+            <div class="row header mt-md-4">
                 <div class="col p-2 text-center bg-primary text-white" >
-                    <h2 class="text-center">Most Visited Pages</h2>
+                    <h2 class="text-center">Top 10 Visited Pages</h2>
                 </div>
             </div>
 
             @for($i = 1; $i <= 10; $i++)
-            <div class="row align-items-center {{ $i % 2 == 0 ? 'bg-light' : '' }}">
+            <div class="row align-items-center {{ $i % 2 == 0 ? 'bg-light' : '' }} border-left border-right border-primary">
                 <div class="col flex-grow col-xl-11 white-right-border">
                     <p class="page-name">
                         {{$i}}&nbsp;&nbsp;&nbsp;
@@ -291,7 +295,7 @@
                 </div>
             </div>
             @endfor
-            
+            <div class="row border-top border-primary mb-5"></div>
         </div>
     </div>
 @endsection
