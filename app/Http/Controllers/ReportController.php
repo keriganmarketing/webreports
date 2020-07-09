@@ -97,8 +97,8 @@ class ReportController extends Controller
             return view('reports.error');
         }
 
-        $directTraffic        = Helpers::calculatePercentage($channels['direct'], $totalCurrentSessions);
-        $organicSearchTraffic = Helpers::calculatePercentage($channels['organicsearch'], $totalCurrentSessions);
+        $directTraffic        = isset($channels['direct']) ? Helpers::calculatePercentage($channels['direct'], $totalCurrentSessions): 0;
+        $organicSearchTraffic = isset($channels['organicsearch']) ? Helpers::calculatePercentage($channels['organicsearch'], $totalCurrentSessions) : 0;
         $referralTraffic      = isset($channels['referral']) ? Helpers::calculatePercentage($channels['referral'], $totalCurrentSessions) : '0';
         $socialTraffic        = isset($channels['social']) ? Helpers::calculatePercentage($channels['social'], $totalCurrentSessions) : 0;
         $paidSearch           = Helpers::calculatePercentage($paidSearchData, $totalCurrentSessions);

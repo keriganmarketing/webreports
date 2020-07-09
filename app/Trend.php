@@ -4,6 +4,7 @@ namespace App;
 
 use Analytics;
 use Carbon\Carbon;
+use Exception;
 use Spatie\Analytics\Period;
 use Illuminate\Database\Eloquent\Model;
 
@@ -31,23 +32,31 @@ class Trend extends Model
             }
         }
 
-        return json_encode($updated);
+        return $updated;
     }
 
     protected function fetchAnalyticsData($client, Period $period)
     {
         $compareParams = 'ga:sessions, ga:users, ga:pageViews, ga:pageViewsPerSession, ga:avgSessionDuration, ga:bounceRate, ga:percentNewSessions';
 
-        $data = $client->performQuery(
-            $period,
-            'ga:sessions',
-            [
-                'metrics' => $compareParams,
-                'dimensions' => 'ga:yearMonth'
-            ]
-        )->rows;
+        try {
+            $data = $client->performQuery(
+                $period,
+                'ga:sessions',
+                [
+                    'metrics' => $compareParams,
+                    'dimensions' => 'ga:yearMonth'
+                ]
+            )->rows;
 
-        return $data;
+            return $data;
+
+        } catch (Exception $e) {
+
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+
+            return [];
+        }
     }
 
     protected function exists($company,$date)
