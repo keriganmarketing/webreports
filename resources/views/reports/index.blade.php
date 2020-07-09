@@ -38,8 +38,8 @@
                     <trend-chart
                         class="bg-white border border-primary py-4 w-100 "
                         :company="{{ $company->id }}"
-                        end="{{ Carbon\Carbon::now()->subMonth()->format('Ym') }}"
-                        start="{{ Carbon\Carbon::now()->subMonths(19)->format('Ym') }}"
+                        end="{{ Carbon\Carbon::now()->subMonth()->endOfMonth()->format('Ym') }}"
+                        start="{{ Carbon\Carbon::now()->subMonths(19)->startOfMonth()->format('Ym') }}"
                     ></trend-chart>
                 </div>
                 <div class="col-12 p-2 text-center bg-primary text-white">
