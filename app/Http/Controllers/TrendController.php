@@ -14,9 +14,7 @@ class TrendController extends Controller
 {
 
     public function data(Company $company, $from, $to)
-    {
-        $this->build($company, $from, $to);
-        
+    {        
         $trend = Trend::where([
             ['company_id', '=', $company->id],
             ['date', '>=', $from],
