@@ -29,4 +29,17 @@ class TrendController extends Controller
         $trend = (new Trend())->runReport($company, $from, $to);
         return response()->json($trend);
     }
+
+    public function buildAll($from, $to)
+    {
+        $companies = Company::where([
+            ['viewId', '!=', '']
+        ])->orderBy('id')->get();
+
+        // dd($companies);
+
+        foreach($companies as $company){
+            echo $this->build($company, $from, $to);
+        }
+    }
 }

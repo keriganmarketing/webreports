@@ -16,6 +16,7 @@ Route::post('/company', 'CompaniesController@store');
 // Trend Data
 Route::any('/api/v1/trend/{company}/{from}/{to}','TrendController@data');
 Route::any('/api/v1/build/{company}/{from}/{to}','TrendController@build');
+Route::any('/api/v1/buildall/{from}/{to}','TrendController@buildAll');
 
 Auth::routes();
 
