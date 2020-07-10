@@ -18,7 +18,7 @@ class UsersController extends Controller
 
     public function show()
     {
-        $users = User::get();
+        $users = User::orderby('name')->get();
         return view('users.show', compact('users'));
     }
 

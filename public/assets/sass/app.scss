@@ -87,9 +87,12 @@ div#topbar {
 }
 
 .content-panel {
-  padding-top: 3rem;
   overflow-y: scroll;
   height: 100%;
+
+  .panel-content {
+    margin: 3rem 0 5rem;
+  }
 }
 
 .big-number{
