@@ -2,20 +2,13 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center py-4">
-        <div class="col-md-10">
-            <div class="card">
-                <div class="card-header">Run Web Report</div>
+    <div class="panel-content" >
+    <h1 class="text-primary mb-4">Run a Report</h1>
 
-                <div class="card-body">
-                    <report-form 
-                        :companies="{{ $companies }}" 
-                        :dates="{{ $dates }}" 
-                    ></report-form>
-                </div>
-
-            </div>
-        </div>
+        <report-form 
+            :companies="{{ $companies }}" 
+            :dates="{{ $dates }}" 
+        ></report-form>
     </div>
 </div>
 

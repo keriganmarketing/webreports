@@ -8,6 +8,15 @@ use Illuminate\Http\Request;
 class CompaniesController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -50,9 +59,10 @@ class CompaniesController extends Controller
      * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
+    public function show()
     {
-        //
+        $companies = Company::orderby('name')->get();
+        return view('companies.show', compact('companies'));
     }
 
     /**
@@ -63,7 +73,7 @@ class CompaniesController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        return view('companies.edit', compact('company'));
     }
 
     /**
@@ -75,7 +85,12 @@ class CompaniesController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+        $company->name = $request->name;
+        $company->viewId = $request->viewId;
+        $company->url = $request->url;
+        $company->save();
+
+        return back();
     }
 
     /**

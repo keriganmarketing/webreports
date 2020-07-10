@@ -1,10 +1,10 @@
-@extends('layouts.report')
+@extends('layouts.app')
 
 @section('content')
     {{-- $reportData, $company --}}
     <div class="wrapper py-3 pt-5">
         <div class="container">
-            <div class="row align-items-center justify-content-between ">
+            <div class="d-flex flex-wrap align-items-center justify-content-between ">
                 
                 <div class="col-lg-4 col-lg-4 col-xl-3 text-lg-left pb-3 text-center">
                     <img src="/img/kma-logo.png" alt="KMA" class="img-fluid" width="170">
@@ -25,7 +25,7 @@
 
             </div>
 
-            <div class="row mt-2">
+            <div class="d-flex flex-wrap mt-2">
                 <div class="col-12 p-2 text-center bg-primary text-white">
                     <h2 class="m-0">18-Month Trend</h2>
                     <p class="display-4 m-0">
@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-12 p-0 mb-4"  >
                     <trend-chart
-                        class="bg-white border border-primary py-4 w-100 "
+                        class="bg-white border border shadow py-4 w-100 "
                         :company="{{ $company->id }}"
                         end="{{ Carbon\Carbon::now()->subMonth()->endOfMonth()->format('Ym') }}"
                         start="{{ Carbon\Carbon::now()->subMonths(19)->startOfMonth()->format('Ym') }}"
@@ -50,7 +50,7 @@
                     </h2>
                 </div>
             </div>
-            <div class="row border border-primary pb-4">
+            <div class="d-flex flex-wrap border border shadow pb-4">
                 <div class="col-sm-6 col-md-4 col-xl-2 text-center pt-4">
                     <p class="display-3 attribute-header">Average Sessions Per Day</p>
                     <hr>
@@ -190,10 +190,10 @@
                     </p>
                 </div>
             </div>
-            <div class="row pb-md-4 mt-md-4 ">
+            <div class="d-flex flex-wrap pb-md-4 mt-md-4 ">
                 <div class="col-lg-6 devices-wrapper px-0 pr-md-3">
                     <h2 class="p-2 text-center bg-primary text-white m-0">Device Used</h2>
-                    <div class="device-images row no-gutters border border-primary">
+                    <div class="device-images row no-gutters border shadow">
                         <div class="col-md-4 py-2 text-center">
                             <img src="/img/desktop.png" alt="desktop" class="device img img-fluid">
                             <p class="text-center pt-2">desktop / laptop</p>
@@ -213,7 +213,7 @@
                 </div>
                 <div class="col-lg-6 px-0 pl-md-3 d-flex flex-column">
                     <h2 class="p-2 text-center bg-primary text-white m-0">New vs Returning Visitors</h2>
-                    <div class="new-vs-returning-visitors d-flex flex-column flex-grow-1 border border-primary p-4">
+                    <div class="new-vs-returning-visitors d-flex flex-column flex-grow-1 border shadow p-4">
                         
                         <div class="row h-50 mb-4 no-gutters ">
                             <div class="new col-6">
@@ -232,12 +232,12 @@
                     </div>
                 </div>
             </div>
-            <div class="row ">
+            <div class="header">
                 <div class="col p-2 text-center bg-primary text-white" >
                     <h2 class="text-center">Traffic Sources</h2>
                 </div>
             </div>
-            <div class="row border border-primary">
+            <div class="d-flex flex-wrap border border shadow">
                 <div class="col-md-6 text-center no-gutter d-flex flex-wrap align-items-center traffic-source">
                     <span class="col-6 col-xl-4 text-right  display-3 px-2">Organic Search: </span>
                     <span class="col-6 col-xl-3 display-1 text-left text-xl-center text-secondary" >{{ number_format($reportNow->organic_search, 1, '.', ',') }}%</span>
@@ -271,14 +271,15 @@
                     <span class="text-left col-xl-5 text-center text-xl-left p-2 pt-0 pt-xl-2 flex-grow d-flex align-items-start"><small class="w-100">Users who click to your website from a sponsored listing or display ad.</small></span>
                 </div>
             </div>
-            <div class="row header mt-md-4">
+            <div class="header mt-md-4">
                 <div class="col p-2 text-center bg-primary text-white" >
                     <h2 class="text-center">Top 10 Visited Pages</h2>
                 </div>
             </div>
 
+            <div class="border-top mb-5 shadow" >
             @for($i = 1; $i <= 10; $i++)
-            <div class="row align-items-center {{ $i % 2 == 0 ? 'bg-light' : '' }} border-left border-right border-primary">
+            <div class="d-flex align-items-center {{ $i % 2 == 0 ? 'bg-light' : 'bg-white' }} border-left border-right">
                 <div class="col flex-grow col-xl-11 white-right-border">
                     <p class="page-name">
                         {{$i}}&nbsp;&nbsp;&nbsp;
@@ -295,7 +296,7 @@
                 </div>
             </div>
             @endfor
-            <div class="row border-top border-primary mb-5"></div>
+            </div>
         </div>
     </div>
 @endsection

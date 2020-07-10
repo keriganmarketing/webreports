@@ -51,10 +51,12 @@ $brown:   #5f534a;
 // Brands
 $brand-info: #b4be35;
 $brand-secondary: #46708a;
-$brand-primary: #003a5d;
+$brand-primary: #033956;
+$brand-dark: #022c44;
 $brand-success: #2ab27b;
 $brand-warning: #cbb956;
 $brand-danger: #bf5329;
+
 
 $colors: ();
 $colors: map-merge((
@@ -76,7 +78,7 @@ $info:          $brand-info;
 $warning:       $brand-warning;
 $danger:        $brand-danger;
 $light:         $gray-200;
-$dark:          $gray-800;
+$dark:          $brand-dark;
 
 $theme-colors: ();
 $theme-colors: map-merge((

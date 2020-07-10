@@ -20,45 +20,18 @@
         ]) !!};
     </script>
 </head>
-<body class="bg-light">
-    <div id="app">
-        <div class="d-flex flex-column flex-md-row align-items-center px-md-4 mb-3 bg-white border-bottom shadow-sm">
-            <!-- Branding Image -->
-            <a class="navbar-brand text-info font-weight-bold py-3" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
-            </a>
-
-            <nav class="my-md-0 ml-md-auto mr-md-3 text-center">
-
-                @if (Auth::guest())
-                    <a class="p-2 py-md-4 text-secondary d-inline-block" href="{{ route('login') }}">Login</a>
-                    {{-- <a class="p-2 py-md-4 text-secondary d-inline-block" href="{{ route('register') }}">Register</a> --}}
-                @else
-                    {{-- <span class="p-2 text-dark"> Hello 
-                        {{ Auth::user()->name }}!
-                    </span> --}}
-
-                    <a class="p-2 py-md-4 text-secondary d-inline-block font-weight-bold" href="{{ route('company.create') }}">Add Company</a>
-                    <a class="p-2 py-md-4 text-secondary d-inline-block font-weight-bold" href="/">Run&nbsp;Report</a>
-
-                    <a class="p-2 py-md-4 text-secondary d-inline-block" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                        Logout
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                @endif
-
-            </nav>
-
+<body>
+    <div id="app" class="d-flex" :class="{'toggled': !sidebarOpen, 'mobilenavopen': mobileNavOpen}" >
+        @include('shared.sidebar')
+        @include('shared.mobilenav')
+        
+        <div id="page-content-wrapper" class="flex-grow-1">
+            @include('shared.topnav')
+            <div class="content-panel flex-grow-1">
+            @yield('content')
+            </div>
         </div>
-
-        @yield('content')
     </div>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('scripts.footer')
