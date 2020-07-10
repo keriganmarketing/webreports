@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="panel-content" >
+    <div class="panel-content pb-5 px-3" >
         <h1 class="text-primary mb-4">Users</h1>
         
         <div class="row border align-items-center bg-primary d-none d-lg-flex" >
