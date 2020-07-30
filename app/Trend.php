@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Exception;
 use Spatie\Analytics\Period;
 use Illuminate\Database\Eloquent\Model;
+use stdClass;
 
 class Trend extends Model
 {
@@ -26,13 +27,28 @@ class Trend extends Model
         $currentPeriod = Period::create(Carbon::createFromFormat('Y-m-d', $from), Carbon::createFromFormat('Y-m-d', $to));
         $updated = [];
 
-        foreach($this->fetchAnalyticsData($client, $currentPeriod) as $data){
-            if(! $this->exists($company, $data[0])){
-                $updated[] = $this->store($company, $data);      
+        $trends = $this->fetchAnalyticsData($client, $currentPeriod);
+        $report = new stdClass();
+        $report->company = $company;
+        $report->data = [];
+
+        if($trends){
+            foreach($trends as $data){
+                if(! $this->exists($company, $data[0])){
+                    $store = $this->store($company, $data);
+                    $report->data[] = ['updated' => true, 'date' => $data[0]];
+                }else{
+                    $report->data[] = ['updated' => false, 'date' => $data[0]];
+                }
             }
+            $report->error = 0;
+        }else{
+            $report->error = 1;
         }
 
-        return $updated;
+        $updated[] = $report; 
+
+        return response()->json($updated);
     }
 
     protected function fetchAnalyticsData($client, Period $period)
@@ -53,7 +69,7 @@ class Trend extends Model
 
         } catch (Exception $e) {
 
-            echo 'Caught exception: ',  $e->getMessage(), "\n";
+            // echo 'Caught exception: ',  $e->getMessage(), "\n";
 
             return [];
         }

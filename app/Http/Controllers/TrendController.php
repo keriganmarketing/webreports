@@ -26,8 +26,7 @@ class TrendController extends Controller
 
     public function build(Company $company, $from, $to)
     {
-        $trend = (new Trend())->runReport($company, $from, $to);
-        return response()->json($trend);
+        return response()->json((new Trend())->runReport($company, $from, $to));
     }
 
     public function buildAll($from, $to)

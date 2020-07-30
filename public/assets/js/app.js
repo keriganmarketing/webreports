@@ -2,6 +2,7 @@ Vue = require('vue');
 
 Vue.component('report-form', require('./components/ReportForm.vue').default);
 Vue.component('trend-chart', require('./components/TrendChart.vue').default);
+Vue.component('trend-builder-form', require('./components/TrendBuilderForm.vue').default);
 
 const app = new Vue({
     el: '#app',

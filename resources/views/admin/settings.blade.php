@@ -4,8 +4,11 @@
 <div class="container">
     <div class="panel-content" >
         <h1 class="text-primary mb-4">Utilities</h1>
-        <p>Coming Soon</p>
-
+        <h2>Build Trend Reports</h2>
+        <p>Until we set up a cron, we'll need to run this manually. Reports cannot be overwritten unless manually deleted from the database, so don't run it on partial months.</p>
+        <trend-builder-form
+            :companies="{{ $companies }}" 
+        ></trend-builder-form>
     </div>
 </div>
 @endsection

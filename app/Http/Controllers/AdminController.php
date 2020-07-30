@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Company;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -18,6 +19,8 @@ class AdminController extends Controller
 
     public function settings()
     {
-        return view('admin.settings');
+        $companies = Company::all()->sortBy('name');
+
+        return view('admin.settings', compact('companies'));
     }
 }
