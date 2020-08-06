@@ -10,7 +10,7 @@ class Helpers extends Model
 {
     public static function getCompanies()
     {
-        return Company::all()->sortBy('name');
+        return Company::where(['active' => true])->orderby('name')->get();
     }
 
     public static function buildDates()

@@ -61,8 +61,9 @@ class CompaniesController extends Controller
      */
     public function show()
     {
-        $companies = Company::orderby('name')->get();
-        return view('companies.show', compact('companies'));
+        $companies = Company::where(['active' => true])->orderby('name')->get();
+        $disabledCompanies = Company::where(['active' => false])->orderby('name')->get();
+        return view('companies.show', compact('companies','disabledCompanies'));
     }
 
     /**
@@ -94,13 +95,49 @@ class CompaniesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Disable the specified resource in storage.
      *
-     * @param  \App\Company  $company
+     * @param  Company  $company
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Company $company)
+    public function disable(Request $request, Company $company)
     {
-        //
+        $companyDisabled = $company;
+        $company->active = 0;
+        $company->save();
+
+        return redirect('companies')->with('status', $companyDisabled->name . ' has been disabled.');
+    }
+
+    /**
+     * Disable the specified resource in storage.
+     *
+     * @param  Company  $company
+     * @param  Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function enable(Request $request, Company $company)
+    {
+        $companyEnabled = $company;
+        $company->active = 1;
+        $company->save();
+
+        return redirect('companies')->with('status', $companyEnabled->name . ' has been enabled.');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     * 
+     * @param  Company  $company
+     * @param  Request  $request
+     * @return Response
+     */
+    public function delete(Request $request, Company $company)
+    {
+        $companyDeleted = $company;
+        $company->delete();
+
+        return redirect('companies')->with('status', $companyDeleted->name . ' has been deleted.');
     }
 }

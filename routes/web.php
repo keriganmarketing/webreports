@@ -23,7 +23,10 @@ Route::get('/settings', 'AdminController@settings')->name('admin.settings');
 // Users
 Route::get('/users', 'UsersController@show')->name('users.show');
 Route::get('/user/{user}/edit', 'UsersController@edit')->name('users.edit');
+Route::get('/user/add', 'UsersController@create')->name('users.add');
 Route::post('/user/{user}/edit', 'UsersController@update');
+Route::post('/user/add', 'UsersController@store');
+Route::post('/user/{user}/delete', 'UsersController@delete');
 
 // Company Control
 Route::get('/company/create', 'CompaniesController@create')->name('company.create');
@@ -31,3 +34,6 @@ Route::get('/company/{company}/edit', 'CompaniesController@edit')->name('company
 Route::get('/companies', 'CompaniesController@show')->name('company.show');
 Route::post('/company', 'CompaniesController@store');
 Route::post('/company/{company}/edit', 'CompaniesController@update');
+Route::post('/company/{company}/enable', 'CompaniesController@enable');
+Route::post('/company/{company}/disable', 'CompaniesController@disable');
+Route::post('/company/{company}/delete', 'CompaniesController@delete');

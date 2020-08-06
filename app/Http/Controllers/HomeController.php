@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $companies = Company::all()->sortBy('name');
+        $companies = Company::where(['active' => true])->orderby('name')->get();
         $dates = [];
        
 
