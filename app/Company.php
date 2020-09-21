@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Company extends Model
 {
     protected $guarded = [];
-    protected $viewId;
-    protected $id;
+    protected $table = 'companies';
 
     public function reports()
     {

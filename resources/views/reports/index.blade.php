@@ -245,7 +245,7 @@
                 </div>
                 <div class="col-md-6 text-center bg-light no-gutter d-flex flex-wrap align-items-center traffic-source">
                     <span class="col-6 col-xl-4 text-right  display-3 px-2">Email: </span>
-                    <span class="col-6 col-xl-3 display-1 text-left text-xl-center text-secondary">{{ number_format($reportNow->email_search, 1, '.', ',') }}%</span>
+                    <span class="col-6 col-xl-3 display-1 text-left text-xl-center text-secondary">{{ number_format($reportNow->email, 1, '.', ',') }}%</span>
                     <span class="text-left col-xl-5 text-center text-xl-left p-2 pt-0 pt-xl-2 flex-grow d-flex align-items-start"><small class="w-100">Users who click to your website from an email</small></span>
                 </div>
             

@@ -1,9 +1,16 @@
 <?php
 
 // Web Report
+
+use App\Http\Controllers\ReportController;
+use App\Company;
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::any('/{company}/report/{year}/{month}', 'ReportController@index')->name('report');
 // Route::get('/master-report/{year}/{month}', 'AnalyticsController@masterReport');
+// Route::any('/{company}/report/{year}/{month}', function ($companyId, $year, $month) {
+//     (new ReportController())->index((Company::where([['id', '=', $companyId]])->first()), $year, $month);
+// })->name('report');
 
 // SEM Report
 // Route::get('/sem-report', 'SEMReportController@create')->name('semreport.create');

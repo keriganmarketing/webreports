@@ -8,8 +8,8 @@ use App\Company;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Spatie\Analytics\Period;
-use Analytics;
-use DB;
+use Spatie\Analytics\Analytics;
+use Spatie\Analytics\AnalyticsClientFactory;
 
 class ReportController extends Controller
 {
@@ -60,9 +60,19 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($company, $year, $month)
+    public function create(Company $company, $year, $month)
     {
-        $client = Analytics::setViewId($company->viewId);
+        $analyticsConfig = [
+            'view_id' => $company->viewId,
+            'service_account_credentials_json' => storage_path('app/laravel-google-analytics/service-account-credentials.json'),
+            'cache_lifetime_in_minutes' => 60 * 24,
+            'cache' => [
+                'store' => 'file',
+            ],
+        ];
+        $analytics = new AnalyticsClientFactory();
+        $analytics = $analytics::createForConfig($analyticsConfig);
+        $client = new Analytics($analytics, $company->viewId);
         $report = new Report();
 
         $currentDates  = $report->determineCurrentMonth($year, $month);
@@ -92,6 +102,8 @@ class ReportController extends Controller
 
         $paidSearchData = $report->fetchPaidSearchData($client, $currentPeriod);
         $channels       = $report->fetchChannels($client, $currentPeriod);
+
+        // dd($paidSearchData);
         
         if(!$channels || !isset($channels['direct'])) {
             return view('reports.error');
@@ -99,15 +111,21 @@ class ReportController extends Controller
 
         $directTraffic        = isset($channels['direct']) ? Helpers::calculatePercentage($channels['direct'], $totalCurrentSessions): 0;
         $organicSearchTraffic = isset($channels['organicsearch']) ? Helpers::calculatePercentage($channels['organicsearch'], $totalCurrentSessions) : 0;
-        $referralTraffic      = isset($channels['referral']) ? Helpers::calculatePercentage($channels['referral'], $totalCurrentSessions) : '0';
+        $referralTraffic      = isset($channels['referral']) ? Helpers::calculatePercentage($channels['referral'], $totalCurrentSessions) : 0;
         $socialTraffic        = isset($channels['social']) ? Helpers::calculatePercentage($channels['social'], $totalCurrentSessions) : 0;
         $paidSearch           = Helpers::calculatePercentage($paidSearchData, $totalCurrentSessions);
-        $emailSearchTraffic   = 100 - ($directTraffic + $organicSearchTraffic + $referralTraffic + $socialTraffic + $paidSearch);
+        $emailSearchTraffic   = isset($channels['email']) ? Helpers::calculatePercentage($channels['email'], $totalCurrentSessions) : 0;
 
-        if ($emailSearchTraffic < .2) {
-            //we'll just round this down to account for any other rounding errors
-            $emailSearchTraffic = 0;
-        }
+        // dd($channels);
+
+        // $directTraffic        = isset($channels['direct']) ? $channels['direct'] : 0;
+        // $organicSearchTraffic = isset($channels['organicsearch']) ? $channels['organicsearch'] : 0;
+        // $referralTraffic      = isset($channels['referral']) ? $channels['referral'] : 0;
+        // $socialTraffic        = isset($channels['social']) ? $channels['social'] : 0;
+        // $paidSearch           = $paidSearchData;
+        // $emailSearchTraffic   = isset($channels['email']) ? $channels['email'] : 0;
+
+        
 
         $topPagesData                     = $report->fetchTopPages($client, $currentPeriod);
         $totalSessions                    = $topPagesData[1];
@@ -123,6 +141,8 @@ class ReportController extends Controller
         $topPagesData[0] = Report::fixTopPageData($topPagesData[0]);
 
         $company     = Company::find($company->id);
+
+        
 
         $finalReport = Report::create([
             'company_id'                              => $company->id,

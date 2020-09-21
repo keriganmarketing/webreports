@@ -2,12 +2,13 @@
 
 namespace App;
 
-use Analytics;
-use Carbon\Carbon;
-use Exception;
-use Spatie\Analytics\Period;
-use Illuminate\Database\Eloquent\Model;
 use stdClass;
+use Exception;
+use Carbon\Carbon;
+use Spatie\Analytics\Period;
+use Spatie\Analytics\Analytics;
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Analytics\AnalyticsClientFactory;
 
 class Trend extends Model
 {
@@ -23,7 +24,17 @@ class Trend extends Model
      */
     public function runReport(Company $company, $from, $to)
     {
-        $client = Analytics::setViewId($company->viewId);
+        $analyticsConfig = [
+            'view_id' => $company->viewId,
+            'service_account_credentials_json' => storage_path('app/laravel-google-analytics/service-account-credentials.json'),
+            'cache_lifetime_in_minutes' => 60 * 24,
+            'cache' => [
+                'store' => 'file',
+            ],
+        ];
+        $analytics = new AnalyticsClientFactory();
+        $analytics = $analytics::createForConfig($analyticsConfig);
+        $client = new Analytics($analytics, $company->viewId);
         $currentPeriod = Period::create(Carbon::createFromFormat('Y-m-d', $from), Carbon::createFromFormat('Y-m-d', $to));
         $updated = [];
 
