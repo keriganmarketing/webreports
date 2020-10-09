@@ -3,18 +3,28 @@
 
         <div class="row">
             <div class="col-12 col-md-4 mb-2 mb-md-0">
+                <select id="company" class="custom-select" v-model="formData.company" >
+                    <option value="">Select a Company</option>
+                    <option 
+                        v-for="company in orderedCompanies" 
+                        :key="company.index" 
+                        :value="company.id" 
+                    >{{ company.name }}</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-3 mb-2 mb-md-0">
                 <select id="month" class="custom-select" v-model="formData.from" >
                     <option value="">From</option>
                     <option v-for="date in startDates" :key="date.index" :value="date.value" >{{ date.label }}</option>
                 </select>
             </div>
-            <div class="col-12 col-md-4 mb-4 mb-md-0">
+            <div class="col-12 col-md-3 mb-4 mb-md-0">
                 <select id="year" class="custom-select" v-model="formData.to" >
                     <option value="">To</option>
                     <option v-for="date in endDates" :key="date.index" :value="date.value" >{{ date.label }}</option>
                 </select>
             </div>
-            <div v-if="formData.company != '' && formData.date != ''" class="col-auto">
+            <div class="col-md-2">
                 <button class="btn btn-primary" id="reportSubmit" >Build</button>
             </div>
         </div>
@@ -61,8 +71,9 @@
                 startDates: [],
                 endDates: [],
                 formData: {
-                    'from'  : '',
-                    'to' : ''
+                    from: '',
+                    to: '',
+                    company: ''
                 },
                 results: []
             }
@@ -102,26 +113,16 @@
             submitForm(){
                 let vm = this;
 
-                this.orderedCompanies.forEach(company => {
-                    try {
-                        axios.get('/api/v1/build/' + company.id + '/' + this.formData.from + '/' + this.formData.to)
-                            .then(response => {
-                                vm.results.unshift(response.data.original[0])
-                            });
+                try {
+                    axios.get('/api/v1/build/' + this.formData.company + '/' + this.formData.from + '/' + this.formData.to)
+                        .then(response => {
+                            vm.results.unshift(response.data.original[0])
+                        });
 
-                    } catch (err) {
-                        console.error(err);
+                } catch (err) {
+                    console.error(err);
 
-                    }
-                });
-
-                
-
-
-                // axios.get(this.endpoint)
-                // .then(response => {
-                //     console.log(response.data)
-                // })
+                }
             }
         }
     }

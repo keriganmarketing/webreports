@@ -41,4 +41,15 @@ class TrendController extends Controller
             echo $this->build($company, $from, $to);
         }
     }
+
+    public function cron()
+    {
+        $companies = Company::where(['active' => true])->orderby('name')->get();
+        $from = Carbon::now()->startOfMonth()->subMonth()->toDateString();
+        $to = Carbon::now()->subMonth()->endOfMonth()->toDateString();
+
+        foreach($companies as $company){
+            (new Trend())->runReport($company, $from, $to);
+        }
+    }
 }

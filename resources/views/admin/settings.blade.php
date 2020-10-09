@@ -9,6 +9,11 @@
         <trend-builder-form
             :companies="{{ $companies }}" 
         ></trend-builder-form>
+
+        <h2 class="mt-4">Build Trend Data for a Company</h2>
+        <trend-form
+            :companies="{{ $companies }}" 
+        ><trend-form>
     </div>
 </div>
 @endsection

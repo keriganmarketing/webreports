@@ -15,7 +15,7 @@
                 </select>
             </div>
             <div v-if="formData.company != '' && formData.date != ''" class="col-auto">
-                <button class="btn btn-primary" id="reportSubmit" >Build Trend Data</button>
+                <button class="btn btn-primary" id="reportSubmit" >Build</button>
             </div>
         </div>
         <div 
