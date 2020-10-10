@@ -26,6 +26,7 @@ class TrendController extends Controller
 
     public function build(Company $company, $from, $to)
     {
+        sleep(2);
         return response()->json((new Trend())->runReport($company, $from, $to));
     }
 
