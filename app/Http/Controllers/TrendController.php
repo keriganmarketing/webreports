@@ -39,6 +39,7 @@ class TrendController extends Controller
 
         foreach($companies as $company){
             echo $this->build($company, $from, $to);
+            sleep(3);
         }
     }
 
@@ -50,6 +51,7 @@ class TrendController extends Controller
 
         foreach($companies as $company){
             (new Trend())->runReport($company, $from, $to);
+            sleep(3);
         }
     }
 }
