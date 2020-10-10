@@ -19,7 +19,7 @@ class AdminController extends Controller
 
     public function settings()
     {
-        $companies = Company::all()->sortBy('name');
+        $companies = Company::where(['active' => true])->orderby('name')->get();
 
         return view('admin.settings', compact('companies'));
     }
