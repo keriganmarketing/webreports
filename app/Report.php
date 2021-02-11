@@ -116,7 +116,7 @@ class Report extends Model
     {
         $compareParams = 'ga:pageviews';
         $otherParams = [
-            'dimensions'  => 'ga:pagePath',
+            'dimensions'  => 'ga:pagePath, ga:pageTitle',
             'sort'        => '-ga:pageViews',
             'max-results' => 10
         ];
@@ -125,7 +125,6 @@ class Report extends Model
 
         $topPages = $pagesData['rows'];
         $totalHits = $pagesData->totalsForAllResults['ga:pageviews'];
-
 
         return [$topPages, $totalHits]; // return [array of pages, total hits]
     }

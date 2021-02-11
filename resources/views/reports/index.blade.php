@@ -2,7 +2,7 @@
 
 @section('content')
     {{-- $reportData, $company --}}
-    <div class="wrapper py-3 pt-5">
+    <div class="wrapper py-5">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-between ">
                 
@@ -277,19 +277,22 @@
                 </div>
             </div>
 
-            <div class="border-top mb-5 shadow" >
+            <div class="border-top shadow" >
             @for($i = 1; $i <= 10; $i++)
             <div class="d-flex align-items-center {{ $i % 2 == 0 ? 'bg-light' : 'bg-white' }} border-left border-right">
-                <div class="col flex-grow col-xl-11 white-right-border">
+                <div class="col-auto row-index" >
+                    <span>{{$i}}</span>
+                </div>
+                <div class="col flex-grow-1 white-right-border">
                     <p class="page-name">
-                        {{$i}}&nbsp;&nbsp;&nbsp;
+                        {{ $reportNow->{ 'most_visited_page_name_' . $i} }}<br>
                         <a 
-                            href="{{ $company->url . $reportNow->{ 'most_visited_page_name_' . $i } }}" 
+                            href="{{ $company->url . $reportNow->{ 'most_visited_page_link_' . $i } }}" 
                             target="_blank"
-                        >{{ App\Report::determineName($reportNow->{ 'most_visited_page_name_' . $i }) }}</a>
+                        >{{ $company->url . $reportNow->{ 'most_visited_page_link_' . $i} }}</a>
                     </p>
                 </div>
-                <div class="col-auto col-xl-1">
+                <div class="col-auto">
                     <p class="page-percentage">
                         {{ $reportNow->{ 'most_visited_page_percentage_' . $i } }}%
                     </p>

@@ -138,11 +138,14 @@ class ReportController extends Controller
         $totalCurrentBounceRate           = $current['bounceRate'];
         $currentAverageDailySessions      = ($totalCurrentSessions / $daysInMonth);
 
-        $topPagesData[0] = Report::fixTopPageData($topPagesData[0]);
-
-        $company     = Company::find($company->id);
+        $topPagesData = Report::fixTopPageData($topPagesData[0]);
 
         
+        // echo '<pre>',print_r($topPagesData),'</pre>';
+  
+        // die();
+
+        $company     = Company::find($company->id);
 
         $finalReport = Report::create([
             'company_id'                              => $company->id,
@@ -177,26 +180,36 @@ class ReportController extends Controller
             'email'                                   => $emailSearchTraffic,
             'social'                                  => $socialTraffic,
             'paid_search'                             => $paidSearch,
-            'most_visited_page_name_1'                => $topPagesData[0][0][0],
-            'most_visited_page_percentage_1'          => number_format(Helpers::calculatePercentage($topPagesData[0][0][1], $totalSessions), 2),
-            'most_visited_page_name_2'                => $topPagesData[0][1][0],
-            'most_visited_page_percentage_2'          => number_format(Helpers::calculatePercentage($topPagesData[0][1][1], $totalSessions), 2),
-            'most_visited_page_name_3'                => $topPagesData[0][2][0],
-            'most_visited_page_percentage_3'          => number_format(Helpers::calculatePercentage($topPagesData[0][2][1], $totalSessions), 2),
-            'most_visited_page_name_4'                => $topPagesData[0][3][0],
-            'most_visited_page_percentage_4'          => number_format(Helpers::calculatePercentage($topPagesData[0][3][1], $totalSessions), 2),
-            'most_visited_page_name_5'                => $topPagesData[0][4][0],
-            'most_visited_page_percentage_5'          => number_format(Helpers::calculatePercentage($topPagesData[0][4][1], $totalSessions), 2),
-            'most_visited_page_name_6'                => $topPagesData[0][5][0],
-            'most_visited_page_percentage_6'          => number_format(Helpers::calculatePercentage($topPagesData[0][5][1], $totalSessions), 2),
-            'most_visited_page_name_7'                => $topPagesData[0][6][0],
-            'most_visited_page_percentage_7'          => number_format(Helpers::calculatePercentage($topPagesData[0][6][1], $totalSessions), 2),
-            'most_visited_page_name_8'                => $topPagesData[0][7][0],
-            'most_visited_page_percentage_8'          => number_format(Helpers::calculatePercentage($topPagesData[0][7][1], $totalSessions), 2),
-            'most_visited_page_name_9'                => $topPagesData[0][8][0],
-            'most_visited_page_percentage_9'          => number_format(Helpers::calculatePercentage($topPagesData[0][8][1], $totalSessions), 2),
-            'most_visited_page_name_10'               => $topPagesData[0][9][0],
-            'most_visited_page_percentage_10'         => number_format(Helpers::calculatePercentage($topPagesData[0][9][1], $totalSessions), 2),
+            'most_visited_page_link_1'                => $topPagesData[0][0] != '/No-Data' ? $topPagesData[0][0] : '',
+            'most_visited_page_name_1'                => isset($topPagesData[0][1]) ? $topPagesData[0][1] : '',
+            'most_visited_page_percentage_1'          => number_format(Helpers::calculatePercentage(isset($topPagesData[0][2]) ? $topPagesData[0][2] : 0, $totalSessions), 2),
+            'most_visited_page_link_2'                => $topPagesData[1][0] != '/No-Data' ? $topPagesData[1][0] : '',
+            'most_visited_page_name_2'                => isset($topPagesData[1][1]) ? $topPagesData[1][1] : '',
+            'most_visited_page_percentage_2'          => number_format(Helpers::calculatePercentage(isset($topPagesData[1][2]) ? $topPagesData[1][2] : 0, $totalSessions), 2),
+            'most_visited_page_link_3'                => $topPagesData[2][0] != '/No-Data' ? $topPagesData[2][0] : '',
+            'most_visited_page_name_3'                => isset($topPagesData[2][1]) ? $topPagesData[2][1] : '',
+            'most_visited_page_percentage_3'          => number_format(Helpers::calculatePercentage(isset($topPagesData[2][2]) ? $topPagesData[2][2] : 0, $totalSessions), 2),
+            'most_visited_page_link_4'                => $topPagesData[3][0] != '/No-Data' ? $topPagesData[3][0] : '',
+            'most_visited_page_name_4'                => isset($topPagesData[3][1]) ? $topPagesData[3][1] : '',
+            'most_visited_page_percentage_4'          => number_format(Helpers::calculatePercentage(isset($topPagesData[3][2]) ? $topPagesData[3][2] : 0, $totalSessions), 2),
+            'most_visited_page_link_5'                => $topPagesData[4][0] != '/No-Data' ? $topPagesData[4][0] : '',
+            'most_visited_page_name_5'                => isset($topPagesData[4][1]) ? $topPagesData[4][1] : '',
+            'most_visited_page_percentage_5'          => number_format(Helpers::calculatePercentage(isset($topPagesData[4][2]) ? $topPagesData[4][2] : 0, $totalSessions), 2),
+            'most_visited_page_link_6'                => $topPagesData[5][0] != '/No-Data' ? $topPagesData[5][0] : '',
+            'most_visited_page_name_6'                => isset($topPagesData[5][1]) ? $topPagesData[5][1] : '',
+            'most_visited_page_percentage_6'          => number_format(Helpers::calculatePercentage(isset($topPagesData[5][2]) ? $topPagesData[5][2] : 0, $totalSessions), 2),
+            'most_visited_page_link_7'                => $topPagesData[6][0] != '/No-Data' ? $topPagesData[6][0] : '',
+            'most_visited_page_name_7'                => isset($topPagesData[6][1]) ? $topPagesData[6][1] : '',
+            'most_visited_page_percentage_7'          => number_format(Helpers::calculatePercentage(isset($topPagesData[6][2]) ? $topPagesData[6][2] : 0, $totalSessions), 2),
+            'most_visited_page_link_8'                => $topPagesData[7][0] != '/No-Data' ? $topPagesData[7][0] : '',
+            'most_visited_page_name_8'                => isset($topPagesData[7][1]) ? $topPagesData[7][1] : '',
+            'most_visited_page_percentage_8'          => number_format(Helpers::calculatePercentage(isset($topPagesData[7][2]) ? $topPagesData[7][2] : 0, $totalSessions), 2),
+            'most_visited_page_link_9'                => $topPagesData[8][0] != '/No-Data' ? $topPagesData[8][0] : '',
+            'most_visited_page_name_9'                => isset($topPagesData[8][1]) ? $topPagesData[8][1] : '',
+            'most_visited_page_percentage_9'          => number_format(Helpers::calculatePercentage(isset($topPagesData[8][2]) ? $topPagesData[8][2] : 0, $totalSessions), 2),
+            'most_visited_page_link_10'               => $topPagesData[9][0] != '/No-Data' ? $topPagesData[9][0] : '',
+            'most_visited_page_name_10'               => isset($topPagesData[9][1]) ? $topPagesData[9][1] : '',
+            'most_visited_page_percentage_10'         => number_format(Helpers::calculatePercentage(isset($topPagesData[9][2]) ? $topPagesData[9][2] : 0, $totalSessions), 2),
             'comparedWithLastMonth'                   => 0
         ]);
 
