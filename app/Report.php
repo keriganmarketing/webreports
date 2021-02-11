@@ -80,13 +80,15 @@ class Report extends Model
     {
         $compareParams = 'ga:sessions';
         $otherParams = [
-            'dimensions' => 'ga:source',
-            'filters'    => 'ga:channelGrouping==Display,ga:channelGrouping==Paid%20Search',
+            'dimensions' => 'ga:medium',
+            'filters'    => 'ga:medium==cpc,ga:medium==Facebook Ads,ga:medium==Google Search,ga:medium==Google Search,ga:medium==Google Display,ga:medium==Google Video,ga:medium==Google Video,ga:medium==Facebook,ga:medium==Facebook ads',
             'sort'       => 'ga:sessions'
         ];
 
         $data = $this->trimKeys($client->performQuery($period, $compareParams, $otherParams)->totalsForAllResults)['sessions'];
 
+        // echo '<pre>',print_r( $data ),'</pre>';
+        // die();
         return $data;
     }
 
