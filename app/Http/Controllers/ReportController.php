@@ -140,11 +140,6 @@ class ReportController extends Controller
 
         $topPagesData = Report::fixTopPageData($topPagesData[0]);
 
-        
-        // echo '<pre>',print_r($topPagesData),'</pre>';
-  
-        // die();
-
         $company     = Company::find($company->id);
 
         $finalReport = Report::create([

@@ -120,7 +120,8 @@ class Report extends Model
         $otherParams = [
             'dimensions'  => 'ga:pagePath, ga:pageTitle',
             'sort'        => '-ga:pageViews',
-            'max-results' => 10
+            'filters'     => 'ga:pageTitle!=(not set)',
+            'max-results' => 10,
         ];
 
         $pagesData = $client->performQuery($period, $compareParams, $otherParams);
